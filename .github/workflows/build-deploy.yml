@@ -138,6 +138,7 @@ jobs:
       - name: Build DAML
         run: |
           docker run --rm \
+            --user 0 \
             -v $(pwd)/rosetta-source:/workspace \
             -w /workspace \
             -e HOME=/tmp \
