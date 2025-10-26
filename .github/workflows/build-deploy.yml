@@ -44,7 +44,8 @@ jobs:
             # Normalize branch name (replace / with -)
             BRANCH_NORMALIZED=$(echo "$BRANCH_NAME" | sed 's/\//-/g')
             RELEASE_NAME="0.0.0.${BRANCH_NORMALIZED}-SNAPSHOT"
-            MAVEN_BUILD_PROFILES="daml,scala,typescript,golang,csharp8,csharp9,kotlin,release,excel,json-schema"
+            # Note: 'release' profile omitted for snapshot builds to avoid GPG signing requirement
+            MAVEN_BUILD_PROFILES="daml,scala,typescript,golang,csharp8,csharp9,kotlin,excel,json-schema"
           fi
           echo "release-name=$RELEASE_NAME" >> $GITHUB_OUTPUT
           echo "maven-build-profiles=$MAVEN_BUILD_PROFILES" >> $GITHUB_OUTPUT
