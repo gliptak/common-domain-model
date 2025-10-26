@@ -67,6 +67,9 @@ jobs:
           java-version: '21'
           distribution: 'temurin'
           cache: maven
+          server-id: github # For GitHub Packages deployment
+          server-username: GITHUB_ACTOR
+          server-password: GITHUB_TOKEN
 
       - name: Cache Maven packages
         uses: actions/cache@v4
@@ -85,7 +88,8 @@ jobs:
         run: |
           mvn versions:set -DnewVersion=${{ needs.setup.outputs.release-name }} versions:update-child-modules -DallowSnapshots=true
 
-      - name: Maven Build and Deploy
+      - name: Maven Build and Deploy to Maven Central (Release)
+        if: needs.setup.outputs.is-release == 'true'
         env:
           CI_DEPLOY_USERNAME: ${{ secrets.CI_DEPLOY_USERNAME }}
           CI_DEPLOY_PASSWORD: ${{ secrets.CI_DEPLOY_PASSWORD }}
@@ -93,6 +97,14 @@ jobs:
           GPG_PASSPHRASE: ${{ secrets.GPG_PASSPHRASE }}
         run: |
           mvn -s settings.xml clean install org.sonatype.central:central-publishing-maven-plugin:0.7.0:publish -P "${{ needs.setup.outputs.maven-build-profiles }}"
+
+      - name: Maven Build and Deploy to GitHub Packages (Snapshot)
+        if: needs.setup.outputs.is-release == 'false'
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_ACTOR: ${{ github.actor }}
+        run: |
+          mvn -s settings.xml clean deploy -P "${{ needs.setup.outputs.maven-build-profiles }}"
 
       - name: Upload Maven Build Artifacts
         uses: actions/upload-artifact@v4

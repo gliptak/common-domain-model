@@ -5,17 +5,29 @@ This document lists all the secrets required to be configured in GitHub reposito
 ## Required Secrets
 
 ### Maven Central Deployment
-These secrets are required for deploying artifacts to Maven Central (Sonatype OSSRH):
+These secrets are required for deploying release artifacts to Maven Central (Sonatype OSSRH):
 
 1. **`CI_DEPLOY_USERNAME`**
    - **Description**: Maven Central (OSSRH) deployment username
-   - **Used in**: Maven deployment commands for publishing artifacts
+   - **Used in**: Maven deployment commands for publishing release artifacts to Maven Central
    - **Format**: String (username)
+   - **Required for**: Release builds only
 
 2. **`CI_DEPLOY_PASSWORD`**
    - **Description**: Maven Central (OSSRH) deployment password or token
-   - **Used in**: Maven deployment commands for authentication
+   - **Used in**: Maven deployment commands for authentication to Maven Central
    - **Format**: String (password/token)
+   - **Required for**: Release builds only
+
+### GitHub Packages Deployment
+These secrets are automatically provided by GitHub Actions for deploying snapshot artifacts:
+
+- **`GITHUB_TOKEN`**
+  - **Description**: Automatically generated token for GitHub Actions
+  - **Used in**: Maven deployment commands for publishing snapshot artifacts to GitHub Packages
+  - **Format**: Automatic (no configuration needed)
+  - **Required for**: Snapshot builds only
+  - **Note**: This is automatically provided by GitHub Actions; no manual configuration needed
 
 ### GPG Signing
 These secrets are required for signing artifacts with GPG:
@@ -71,9 +83,19 @@ These secrets are required for tagging releases in the repository:
 
 ## Workflow Behavior
 
-- **Release builds** (triggered by tags): All secrets are required for deployment
-- **Snapshot builds** (triggered by pushes to branches): Deployment secrets (GPG, Maven Central) are needed but deployment only happens on release
-- **Pull requests**: Build runs without deployment, so deployment secrets are not strictly required for PR validation
+- **Release builds** (triggered by tags): 
+  - Uses Maven Central secrets (`CI_DEPLOY_USERNAME`, `CI_DEPLOY_PASSWORD`)
+  - Requires GPG secrets for artifact signing
+  - Deploys to Maven Central via Sonatype plugin
+  
+- **Snapshot builds** (triggered by pushes to branches): 
+  - Uses `GITHUB_TOKEN` (automatically provided)
+  - No GPG signing required
+  - Deploys to GitHub Packages
+  
+- **Pull requests**: 
+  - Build and test only, no deployment
+  - No secrets required for basic PR validation
 
 ## Testing Configuration
 

@@ -190,13 +190,16 @@ The CDM project uses GitHub Actions for continuous integration and deployment. T
 
 - **Builds** the CDM using Maven with multiple language targets
 - **Tests** all components in parallel (DAML, Scala, C#, Python, etc.)
+- **Deploys** snapshot artifacts to GitHub Packages on branch pushes
 - **Deploys** release artifacts to Maven Central when tags are created
 - **Tags** successful release builds in the repository
 
 ### Workflow Features
 
 - **Parallel Execution**: Language-specific builds (DAML, Scala, C#8, C#9, Python) run in parallel for faster feedback
-- **Conditional Deployment**: Deployment to Maven Central only occurs for tagged releases
+- **Dual Deployment Strategy**: 
+  - Snapshot builds → GitHub Packages (automatic, uses `GITHUB_TOKEN`)
+  - Release builds → Maven Central (requires credentials)
 - **Artifact Management**: Build outputs are shared between jobs using GitHub Actions artifacts
 - **Release Detection**: Automatically distinguishes between snapshot builds (branches) and release builds (tags)
 
@@ -204,9 +207,10 @@ The CDM project uses GitHub Actions for continuous integration and deployment. T
 
 To configure the CI/CD pipeline, the following secrets must be set in the repository settings. See [.github/workflows/SECRETS.md](.github/workflows/SECRETS.md) for detailed documentation:
 
-- `CI_DEPLOY_USERNAME` and `CI_DEPLOY_PASSWORD` - Maven Central credentials
-- `GPG_KEYNAME`, `GPG_PASSPHRASE`, and `GPG_PRIVATE_KEY` - For artifact signing
+- `CI_DEPLOY_USERNAME` and `CI_DEPLOY_PASSWORD` - Maven Central credentials (release builds only)
+- `GPG_KEYNAME`, `GPG_PASSPHRASE`, and `GPG_PRIVATE_KEY` - For artifact signing (release builds only)
 - `REGNOSYS_OPS` and `REGNOSYS_OPS_TOKEN` - For automated git tagging
+- `GITHUB_TOKEN` - Automatically provided for GitHub Packages deployment (snapshot builds)
 
 The main workflow is defined in [`.github/workflows/build-deploy.yml`](.github/workflows/build-deploy.yml).
 
