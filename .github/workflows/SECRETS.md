@@ -73,6 +73,44 @@ These secrets are required for tagging releases in the repository:
 5. Paste the corresponding value
 6. Click **Add secret**
 
+## GitHub Packages Configuration
+
+For GitHub Packages deployment to work, the following configurations are required:
+
+### Workflow Permissions
+The workflow file includes the following permissions (already configured):
+```yaml
+permissions:
+  contents: read
+  packages: write
+```
+
+### Repository Settings
+No additional repository settings are required. GitHub Packages will automatically:
+- Use the `GITHUB_TOKEN` provided by GitHub Actions
+- Authenticate using the credentials configured in `settings.xml`
+- Deploy to `https://maven.pkg.github.com/{owner}/{repository}`
+
+### Authentication Setup
+The authentication is handled through:
+1. **Workflow**: The `actions/setup-java` action configures Maven settings with:
+   - `server-id: github`
+   - `server-username: GITHUB_ACTOR`
+   - `server-password: GITHUB_TOKEN`
+
+2. **settings.xml**: Contains server configuration matching the `github` server ID:
+   ```xml
+   <server>
+       <id>github</id>
+       <username>${env.GITHUB_ACTOR}</username>
+       <password>${env.GITHUB_TOKEN}</password>
+   </server>
+   ```
+
+3. **pom.xml**: The `distributionManagement` section points to the GitHub Packages repository.
+
+No manual configuration of GitHub Packages is needed in the repository settings.
+
 ## Security Notes
 
 - Never commit these secrets directly in code
