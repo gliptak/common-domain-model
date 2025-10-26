@@ -1,4 +1,5 @@
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/regnosysops/FINOS%2Fcommon-domain-model?type=cf-1)]( https://g.codefresh.io/public/accounts/regnosysops/pipelines/new/63ecb79bde06416b39d81e70)
+[![GitHub Actions Build](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml)
 
 [![FINOS - Active](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-active.svg)](https://community.finos.org/docs/governance/Software-Projects/stages/active)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11267/badge)](https://www.bestpractices.dev/projects/11267)
@@ -182,6 +183,32 @@ The following are the FINOS CDM maintainers and the firms they represent.
 | Nicholas Moger       | JPMorgan Chase & Co.|  OrgRep                                | nicholas-moger         | 
 
 If you would like to get in touch with the CDM maintainer team, contact them through their mailing list at [https://lists.finos.org/g/cdm-maintainers](https://lists.finos.org/g/cdm-maintainers). **You can do so by first subscribing at [cdm-maintainers+subscribe@lists.finos.org](mailto:cdm-maintainers+subscribe@lists.finos.org) and posting at [cdm-maintainers@lists.finos.org](mailto:cdm-maintainers@lists.finos.org) .**
+
+## CI/CD Pipeline
+
+The CDM project uses GitHub Actions for continuous integration and deployment. The workflow automatically:
+
+- **Builds** the CDM using Maven with multiple language targets
+- **Tests** all components in parallel (DAML, Scala, C#, Python, etc.)
+- **Deploys** release artifacts to Maven Central when tags are created
+- **Tags** successful release builds in the repository
+
+### Workflow Features
+
+- **Parallel Execution**: Language-specific builds (DAML, Scala, C#8, C#9, Python) run in parallel for faster feedback
+- **Conditional Deployment**: Deployment to Maven Central only occurs for tagged releases
+- **Artifact Management**: Build outputs are shared between jobs using GitHub Actions artifacts
+- **Release Detection**: Automatically distinguishes between snapshot builds (branches) and release builds (tags)
+
+### For Maintainers
+
+To configure the CI/CD pipeline, the following secrets must be set in the repository settings. See [.github/workflows/SECRETS.md](.github/workflows/SECRETS.md) for detailed documentation:
+
+- `CI_DEPLOY_USERNAME` and `CI_DEPLOY_PASSWORD` - Maven Central credentials
+- `GPG_KEYNAME`, `GPG_PASSPHRASE`, and `GPG_PRIVATE_KEY` - For artifact signing
+- `REGNOSYS_OPS` and `REGNOSYS_OPS_TOKEN` - For automated git tagging
+
+The main workflow is defined in [`.github/workflows/build-deploy.yml`](.github/workflows/build-deploy.yml).
 
 ## License
 
