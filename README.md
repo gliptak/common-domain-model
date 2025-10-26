@@ -205,7 +205,7 @@ The CDM project uses GitHub Actions for continuous integration and deployment. T
 
 ### For Maintainers
 
-To configure the CI/CD pipeline, the following secrets must be set in the repository settings. See [.github/workflows/SECRETS.md](.github/workflows/SECRETS.md) for detailed documentation:
+To configure the CI/CD pipeline, the following secrets must be set in the repository settings:
 
 - `CI_DEPLOY_USERNAME` and `CI_DEPLOY_PASSWORD` - Maven Central credentials (release builds only)
 - `GPG_KEYNAME`, `GPG_PASSPHRASE`, and `GPG_PRIVATE_KEY` - For artifact signing (release builds only)
