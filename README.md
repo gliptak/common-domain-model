@@ -1,4 +1,5 @@
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/regnosysops/FINOS%2Fcommon-domain-model?type=cf-1)]( https://g.codefresh.io/public/accounts/regnosysops/pipelines/new/63ecb79bde06416b39d81e70)
+[![GitHub Actions Build](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml)
 
 [![FINOS - Graduated](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-graduated.svg)](https://community.finos.org/docs/governance/lifecycle-stages/graduated)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11267/badge)](https://www.bestpractices.dev/projects/11267)
@@ -203,6 +204,35 @@ If you would like to get in touch with the CDM maintainer team, contact them thr
 11. The build will publish the new version of the CDM Project to the Artifact Registry.
 12. The release will also trigger a notification email to the project maintainers.
 
+## CI/CD Pipeline
+
+The CDM project uses GitHub Actions for continuous integration and deployment. The workflow automatically:
+
+- **Builds** the CDM using Maven with multiple language targets
+- **Tests** all components in parallel (DAML, Scala, C#, Python, etc.)
+- **Deploys** snapshot artifacts to GitHub Packages on branch pushes
+- **Deploys** release artifacts to Maven Central when tags are created
+- **Tags** successful release builds in the repository
+
+### Workflow Features
+
+- **Parallel Execution**: Language-specific builds (DAML, Scala, C#8, C#9, Python) run in parallel for faster feedback
+- **Dual Deployment Strategy**: 
+  - Snapshot builds → GitHub Packages (automatic, uses `GITHUB_TOKEN`)
+  - Release builds → Maven Central (requires credentials)
+- **Artifact Management**: Build outputs are shared between jobs using GitHub Actions artifacts
+- **Release Detection**: Automatically distinguishes between snapshot builds (branches) and release builds (tags)
+
+### For Maintainers
+
+To configure the CI/CD pipeline, the following secrets must be set in the repository settings:
+
+- `CI_DEPLOY_USERNAME` and `CI_DEPLOY_PASSWORD` - Maven Central credentials (release builds only)
+- `GPG_KEYNAME`, `GPG_PASSPHRASE`, and `GPG_PRIVATE_KEY` - For artifact signing (release builds only)
+- `REGNOSYS_OPS` and `REGNOSYS_OPS_TOKEN` - For automated git tagging
+- `GITHUB_TOKEN` - Automatically provided for GitHub Packages deployment (snapshot builds)
+
+The main workflow is defined in [`.github/workflows/build-deploy.yml`](.github/workflows/build-deploy.yml).
 
 ## License
 
