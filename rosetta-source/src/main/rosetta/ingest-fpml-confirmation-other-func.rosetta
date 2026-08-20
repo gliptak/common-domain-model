@@ -7,6 +7,7 @@ import cdm.base.math.*
 import cdm.base.staticdata.asset.common.*
 import cdm.base.staticdata.asset.credit.*
 import cdm.base.staticdata.asset.rates.*
+import cdm.base.staticdata.codelist.*
 import cdm.base.staticdata.party.*
 import cdm.event.common.*
 import cdm.event.workflow.*
@@ -87,220 +88,6 @@ func MapAveragingWeightingMethodEnum:
             "Geometric" then Unweighted,
             "Harmonic" then Unweighted,
             "Weighted" then Weighted,
-            default empty
-
-func MapBusinessCenterEnum:
-    inputs:
-        value string (0..1)
-    output:
-        result BusinessCenterEnum (0..1)
-    set result:
-        value switch
-            "AEAB" then AEAB,
-            "AEAD" then AEAD,
-            "AEDU" then AEDU,
-            "AMYE" then AMYE,
-            "AOLU" then AOLU,
-            "ARBA" then ARBA,
-            "ATVI" then ATVI,
-            "AUAD" then AUAD,
-            "AUBR" then AUBR,
-            "AUCA" then AUCA,
-            "AUDA" then AUDA,
-            "AUME" then AUME,
-            "AUPE" then AUPE,
-            "AUSY" then AUSY,
-            "BBBR" then BBBR,
-            "BDDH" then BDDH,
-            "BEBR" then BEBR,
-            "BGSO" then BGSO,
-            "BHMA" then BHMA,
-            "BMHA" then BMHA,
-            "BNBS" then BNBS,
-            "BOLP" then BOLP,
-            "BRBD" then BRBD,
-            "BRBR" then BRBR,
-            "BRRJ" then BRRJ,
-            "BRSP" then BRSP,
-            "BSNA" then BSNA,
-            "BWGA" then BWGA,
-            "BYMI" then BYMI,
-            "CACL" then CACL,
-            "CAMO" then CAMO,
-            "CAOT" then CAOT,
-            "CATO" then CATO,
-            "CAVA" then CAVA,
-            "CAWI" then CAWI,
-            "CHBA" then CHBA,
-            "CHGE" then CHGE,
-            "CHZU" then CHZU,
-            "CIAB" then CIAB,
-            "CLSA" then CLSA,
-            "CMYA" then CMYA,
-            "CNBE" then CNBE,
-            "CNSH" then CNSH,
-            "COBO" then COBO,
-            "CRSJ" then CRSJ,
-            "CWWI" then CWWI,
-            "CYNI" then CYNI,
-            "CZPR" then CZPR,
-            "DECO" then DECO,
-            "DEDU" then DEDU,
-            "DEFR" then DEFR,
-            "DEHH" then DEHH,
-            "DELE" then DELE,
-            "DEMA" then DEMA,
-            "DEMU" then DEMU,
-            "DEST" then DEST,
-            "DKCO" then DKCO,
-            "DOSD" then DOSD,
-            "DZAL" then DZAL,
-            "ECGU" then ECGU,
-            "EETA" then EETA,
-            "EGCA" then EGCA,
-            "ESAS" then ESAS,
-            "ESBA" then ESBA,
-            "ESMA" then ESMA,
-            "ESSS" then ESSS,
-            "ETAA" then ETAA,
-            "EUR-ICESWAP" then EUR_ICESWAP,
-            "EUTA" then EUTA,
-            "FIHE" then FIHE,
-            "FRPA" then FRPA,
-            "GBED" then GBED,
-            "GBLO" then GBLO,
-            "GBP-ICESWAP" then GBP_ICESWAP,
-            "GETB" then GETB,
-            "GGSP" then GGSP,
-            "GHAC" then GHAC,
-            "GIGI" then GIGI,
-            "GMBA" then GMBA,
-            "GNCO" then GNCO,
-            "GRAT" then GRAT,
-            "GTGC" then GTGC,
-            "HKHK" then HKHK,
-            "HNTE" then HNTE,
-            "HRZA" then HRZA,
-            "HUBU" then HUBU,
-            "IDJA" then IDJA,
-            "IEDU" then IEDU,
-            "ILJE" then ILJE,
-            "ILS-TELBOR" then ILS_TELBOR,
-            "ILTA" then ILTA,
-            "INAH" then INAH,
-            "INBA" then INBA,
-            "INCH" then INCH,
-            "INHY" then INHY,
-            "INKO" then INKO,
-            "INMU" then INMU,
-            "INND" then INND,
-            "IQBA" then IQBA,
-            "IRTE" then IRTE,
-            "ISRE" then ISRE,
-            "ITMI" then ITMI,
-            "ITRO" then ITRO,
-            "ITTU" then ITTU,
-            "JESH" then JESH,
-            "JMKI" then JMKI,
-            "JOAM" then JOAM,
-            "JPTO" then JPTO,
-            "KENA" then KENA,
-            "KRSE" then KRSE,
-            "KWKC" then KWKC,
-            "KYGE" then KYGE,
-            "KZAL" then KZAL,
-            "LAVI" then LAVI,
-            "LBBE" then LBBE,
-            "LKCO" then LKCO,
-            "LULU" then LULU,
-            "LVRI" then LVRI,
-            "MACA" then MACA,
-            "MARA" then MARA,
-            "MCMO" then MCMO,
-            "MNUB" then MNUB,
-            "MOMA" then MOMA,
-            "MTVA" then MTVA,
-            "MUPL" then MUPL,
-            "MVMA" then MVMA,
-            "MWLI" then MWLI,
-            "MXMC" then MXMC,
-            "MYKL" then MYKL,
-            "MYLA" then MYLA,
-            "MZMA" then MZMA,
-            "NAWI" then NAWI,
-            "NGAB" then NGAB,
-            "NGLA" then NGLA,
-            "NLAM" then NLAM,
-            "NLRO" then NLRO,
-            "NOOS" then NOOS,
-            "NPKA" then NPKA,
-            "NYFD" then NYFD,
-            "NYSE" then NYSE,
-            "NZAU" then NZAU,
-            "NZWE" then NZWE,
-            "OMMU" then OMMU,
-            "PAPC" then PAPC,
-            "PELI" then PELI,
-            "PHMA" then PHMA,
-            "PHMK" then PHMK,
-            "PKKA" then PKKA,
-            "PLWA" then PLWA,
-            "PRSJ" then PRSJ,
-            "PTLI" then PTLI,
-            "QADO" then QADO,
-            "ROBU" then ROBU,
-            "RSBE" then RSBE,
-            "RUMO" then RUMO,
-            "SAAB" then SAAB,
-            "SAJE" then SAJE,
-            "SARI" then SARI,
-            "SEST" then SEST,
-            "SGSI" then SGSI,
-            "SILJ" then SILJ,
-            "SKBR" then SKBR,
-            "SLFR" then SLFR,
-            "SNDA" then SNDA,
-            "SVSS" then SVSS,
-            "THBA" then THBA,
-            "TNTU" then TNTU,
-            "TRAN" then TRAN,
-            "TRIS" then TRIS,
-            "TTPS" then TTPS,
-            "TWTA" then TWTA,
-            "TZDA" then TZDA,
-            "TZDO" then TZDO,
-            "UAKI" then UAKI,
-            "UGKA" then UGKA,
-            "USBO" then USBO,
-            "USCH" then USCH,
-            "USCR" then USCR,
-            "USD-ICESWAP" then USD_ICESWAP,
-            "USD-MUNI" then USD_MUNI,
-            "USDC" then USDC,
-            "USDN" then USDN,
-            "USDT" then USDT,
-            "USGS" then USGS,
-            "USHL" then USHL,
-            "USHO" then USHO,
-            "USLA" then USLA,
-            "USMB" then USMB,
-            "USMN" then USMN,
-            "USNY" then USNY,
-            "USPO" then USPO,
-            "USSA" then USSA,
-            "USSE" then USSE,
-            "USSF" then USSF,
-            "USWT" then USWT,
-            "UYMO" then UYMO,
-            "UZTA" then UZTA,
-            "VECA" then VECA,
-            "VGRT" then VGRT,
-            "VNHA" then VNHA,
-            "VNHC" then VNHC,
-            "YEAD" then YEAD,
-            "ZAJO" then ZAJO,
-            "ZMLU" then ZMLU,
-            "ZWHA" then ZWHA,
             default empty
 
 func MapBusinessDayConventionEnum:
@@ -1021,11 +808,11 @@ func MapFPVFinalPriceElectionFallbackEnum:
             "FPVHedgeExecution" then FPVHedgeExecution,
             default empty
 
-func MapFeeTypeEnum:
+func MapUnscheduledTransferEnum:
     inputs:
         value string (0..1)
     output:
-        result FeeTypeEnum (0..1)
+        result UnscheduledTransferEnum (0..1)
     set result:
         value switch
             "AmendmentFee" then Renegotiation,
@@ -1037,6 +824,7 @@ func MapFeeTypeEnum:
             "TerminationFee" then Termination,
             "UPFRONT_FEE" then Upfront,
             "Upfront fee" then Upfront,
+            "PrincipalExchange" then Upfront,
             default empty
 
 func MapFinancialUnitEnum:
@@ -1909,17 +1697,6 @@ func MapLengthUnitEnum:
             "TimeUnit" then TimeUnit,
             default empty
 
-func MapMarginTypeEnum:
-    inputs:
-        value string (0..1)
-    output:
-        result MarginTypeEnum (0..1)
-    set result:
-        value switch
-            "Cash" then Cash,
-            "Instrument" then Instrument,
-            default empty
-
 func MapMarketDisruptionEnum:
     inputs:
         value string (0..1)
@@ -2318,6 +2095,8 @@ func MapOptionTypeEnum:
             "Payer" then Payer,
             "Receiver" then Receiver,
             "Straddle" then Straddle,
+            "Call" then Call,
+            "Put" then Put,
             default empty
 
 func MapPartyDeterminationEnum:
@@ -2344,6 +2123,8 @@ func MapPartyIdentifierTypeEnum:
             "http://www.fpml.org/coding-scheme/external/iso17442" then LEI,
             "http://www.fpml.org/coding-scheme/external/iso9362" then BIC,
             "http://www.fpml.org/coding-scheme/external/iso10383" then MIC,
+            "http://www.fpml.org/coding-scheme/external/exchange-id-MIC" then MIC,
+            "http://www.fpml.org/coding-scheme/external/mifir/extension-iso10383" then MIC,
             default empty
 
 func MapPartyRoleEnum:
@@ -2450,6 +2231,7 @@ func MapPeriodExtendedEnum:
         value switch
             "D" then D,
             "PerCalendarDay" then D,
+            "PerCalculationDay" then D,
             "W" then W,
             "M" then M,
             "PerMonth" then M,
@@ -2458,6 +2240,7 @@ func MapPeriodExtendedEnum:
             "Term" then T,
             "PerCalculationPeriod" then C,
             "PerSettlementPeriod" then C,
+            "PerHour" then H,
             default empty
 
 func MapPeriodTimeEnum:
@@ -2613,17 +2396,6 @@ func MapRealisedVarianceMethodEnum:
             "Both" then Both,
             default empty
 
-func MapRepoDurationEnum:
-    inputs:
-        value string (0..1)
-    output:
-        result RepoDurationEnum (0..1)
-    set result:
-        value switch
-            "Overnight" then Overnight,
-            "Term" then Term,
-            default empty
-
 func MapResetRelativeToEnum:
     inputs:
         value string (0..1)
@@ -2735,22 +2507,6 @@ func MapRoundingDirectionEnum:
             "Up" then Up,
             "Down" then Down,
             "Nearest" then Nearest,
-            default empty
-
-func MapScheduledTransferEnum:
-    inputs:
-        value string (0..1)
-    output:
-        result ScheduledTransferEnum (0..1)
-    set result:
-        value switch
-            "Coupon" then Coupon,
-            "CreditEvent" then CreditEvent,
-            "DividendReturn" then DividendReturn,
-            "ExerciseFee" then Exercise,
-            "InterestReturn" then InterestReturn,
-            "PriceReturn" then Performance,
-            "PrincipleExchange" then PrincipalPayment,
             default empty
 
 func MapSettledEntityMatrixSourceEnum:

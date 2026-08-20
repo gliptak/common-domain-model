@@ -1,0 +1,205 @@
+{
+  "instruction" : [ {
+    "primitiveInstruction" : {
+      "execution" : {
+        "product" : {
+          "economicTerms" : {
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "unadjustedDate" : "2025-05-15"
+              }
+            },
+            "payout" : [ {
+              "@type" : "cdm.product.template.AssetPayout",
+              "payerReceiver" : {
+                "payer" : "Party2",
+                "receiver" : "Party1"
+              },
+              "priceQuantity" : {
+                "quantitySchedule" : {
+                  "@ref:scoped" : "AssetQuantity-1"
+                },
+                "priceSchedule" : [ {
+                  "@ref:scoped" : "LendingFee-1"
+                }, {
+                  "@ref:scoped" : "AssetPrice-1"
+                } ]
+              },
+              "assetLeg" : [ {
+                "settlementDate" : {
+                  "adjustableDate" : {
+                    "adjustedDate" : {
+                      "@data" : "2025-05-16"
+                    }
+                  }
+                },
+                "deliveryMethod" : "FreeOfPayment"
+              } ],
+              "underlier" : {
+                "@type" : "cdm.base.staticdata.asset.common.Security",
+                "identifier" : [ {
+                  "identifier" : {
+                    "@data" : "GB00BDR05C01"
+                  },
+                  "identifierType" : "ISIN"
+                } ],
+                "securityType" : "Equity"
+              },
+              "minimumFee" : {
+                "value" : 10,
+                "unit" : {
+                  "currency" : {
+                    "@data" : "USD"
+                  }
+                }
+              }
+            } ],
+            "collateral" : {
+              "collateralPortfolio" : [ {
+                "portfolioIdentifier" : {
+                  "issuer" : {
+                    "@data" : "UK Broker"
+                  },
+                  "assignedIdentifier" : [ {
+                    "identifier" : {
+                      "@data" : "CollateralSchedule001"
+                    }
+                  } ]
+                }
+              } ],
+              "collateralProvisions" : {
+                "collateralType" : "NonCash"
+              }
+            }
+          }
+        },
+        "priceQuantity" : [ {
+          "@key" : "PriceQuantity-1",
+          "price" : [ {
+            "@key:scoped" : "LendingFee-1",
+            "value" : 0.01,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "InterestRate"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "LoanValue-1",
+            "value" : 9997122,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          }
+        }, {
+          "@key" : "PriceQuantity-2",
+          "price" : [ {
+            "@key:scoped" : "AssetPrice-1",
+            "value" : 9.8011,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "financialUnit" : "Share"
+            },
+            "priceType" : "AssetPrice"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "AssetQuantity-1",
+            "value" : 1000000,
+            "unit" : {
+              "financialUnit" : "Share"
+            }
+          },
+          "observable" : {
+            "@key:scoped" : "Observable-1",
+            "@data" : {
+              "@type" : "cdm.base.staticdata.asset.common.Security",
+              "identifier" : [ {
+                "identifier" : {
+                  "@data" : "GB00BDR05C01"
+                },
+                "identifierType" : "ISIN"
+              } ],
+              "securityType" : "Equity"
+            }
+          }
+        } ],
+        "counterparty" : [ {
+          "role" : "Party1",
+          "partyReference" : {
+            "@ref:external" : "UKLender"
+          }
+        }, {
+          "role" : "Party2",
+          "partyReference" : {
+            "@ref:external" : "UKBroker"
+          }
+        } ],
+        "parties" : [ {
+          "@key" : "1ef4886d",
+          "@key:external" : "UKLender",
+          "partyId" : [ {
+            "identifier" : {
+              "@data" : "CP001LEI111111111111"
+            }
+          } ],
+          "name" : {
+            "@data" : "UK Lender"
+          }
+        }, {
+          "@key" : "296093b7",
+          "@key:external" : "UKBroker",
+          "partyId" : [ {
+            "identifier" : {
+              "@data" : "FM1LEI11111111111111"
+            }
+          } ],
+          "name" : {
+            "@data" : "UK Broker"
+          }
+        } ],
+        "partyRoles" : [ {
+          "partyReference" : {
+            "@ref:external" : "UKLender"
+          },
+          "role" : "Lender"
+        }, {
+          "partyReference" : {
+            "@ref:external" : "UKBroker"
+          },
+          "role" : "Borrower"
+        } ],
+        "executionDetails" : {
+          "executionType" : "OnVenue"
+        },
+        "tradeDate" : {
+          "@data" : "2025-05-15"
+        },
+        "tradeIdentifier" : [ {
+          "issuer" : {
+            "@data" : "UK Broker"
+          },
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@data" : "20445678222"
+            }
+          } ]
+        } ]
+      }
+    }
+  } ],
+  "intent" : null,
+  "eventDate" : "2025-05-15",
+  "effectiveDate" : "2025-05-15"
+}

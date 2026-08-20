@@ -1,0 +1,676 @@
+{
+  "@model" : "cdm",
+  "@type" : "cdm.event.common.BusinessEvent",
+  "@version" : "0.0.0.master-SNAPSHOT",
+  "@key" : "30c779ad",
+  "eventDate" : "2021-03-20",
+  "effectiveDate" : "2021-03-20",
+  "instruction" : [ {
+    "primitiveInstruction" : {
+      "quantityChange" : {
+        "direction" : "Replace"
+      },
+      "termsChange" : {
+        "product" : {
+          "taxonomy" : [ {
+            "source" : "CFI",
+            "value" : {
+              "name" : {
+                "@data" : "LRSTXD"
+              }
+            }
+          }, {
+            "source" : "ISDA",
+            "value" : {
+              "name" : {
+                "@data" : "RepurchaseAgreement"
+              }
+            },
+            "calculated" : true
+          } ],
+          "economicTerms" : {
+            "effectiveDate" : {
+              "adjustableDate" : {
+                "unadjustedDate" : "2021-03-20"
+              }
+            },
+            "terminationDate" : {
+              "@key:external" : "RepurchaseDate",
+              "adjustableDate" : {
+                "unadjustedDate" : "2021-03-22"
+              }
+            },
+            "payout" : [ {
+              "@type" : "cdm.product.asset.InterestRatePayout",
+              "payerReceiver" : {
+                "payer" : "Party1",
+                "receiver" : "Party2"
+              },
+              "priceQuantity" : {
+                "quantitySchedule" : {
+                  "@ref:scoped" : "quantity-1"
+                }
+              },
+              "principalPayment" : {
+                "initialPayment" : true,
+                "finalPayment" : true,
+                "intermediatePayment" : false
+              },
+              "rateSpecification" : {
+                "@type" : "cdm.product.asset.FixedRateSpecification",
+                "rateSchedule" : {
+                  "price" : {
+                    "@ref:scoped" : "price-1"
+                  }
+                }
+              },
+              "dayCountFraction" : {
+                "@data" : "ACT/360"
+              }
+            } ],
+            "collateral" : {
+              "collateralPortfolio" : [ {
+                "collateralPosition" : [ {
+                  "product" : {
+                    "@type" : "cdm.product.template.NonTransferableProduct",
+                    "economicTerms" : {
+                      "payout" : [ {
+                        "@type" : "cdm.product.template.AssetPayout",
+                        "payerReceiver" : {
+                          "payer" : "Party1",
+                          "receiver" : "Party2"
+                        },
+                        "priceQuantity" : {
+                          "quantitySchedule" : {
+                            "@ref:scoped" : "quantity-2"
+                          }
+                        },
+                        "principalPayment" : {
+                          "initialPayment" : true,
+                          "finalPayment" : true,
+                          "intermediatePayment" : false
+                        },
+                        "assetLeg" : [ {
+                          "settlementDate" : {
+                            "relativeDate" : {
+                              "periodMultiplier" : 0,
+                              "period" : "D",
+                              "businessDayConvention" : "NotApplicable",
+                              "dateRelativeTo" : {
+                                "@ref" : "3f28d3",
+                                "@ref:external" : "PurchaseDate"
+                              }
+                            }
+                          },
+                          "deliveryMethod" : "DeliveryVersusPayment"
+                        }, {
+                          "settlementDate" : {
+                            "relativeDate" : {
+                              "periodMultiplier" : 0,
+                              "period" : "D",
+                              "businessDayConvention" : "NotApplicable",
+                              "dateRelativeTo" : {
+                                "@ref" : "3f28d6",
+                                "@ref:external" : "RepurchaseDate"
+                              }
+                            }
+                          },
+                          "deliveryMethod" : "DeliveryVersusPayment"
+                        } ],
+                        "underlier" : {
+                          "@type" : "cdm.base.staticdata.asset.common.Security",
+                          "identifier" : [ {
+                            "identifier" : {
+                              "@data" : "GB00BMGR2916"
+                            },
+                            "identifierType" : "ISIN"
+                          } ]
+                        }
+                      } ]
+                    }
+                  }
+                } ]
+              } ],
+              "collateralProvisions" : {
+                "collateralType" : "Cash",
+                "eligibleCollateral" : [ {
+                  "treatment" : {
+                    "valuationTreatment" : {
+                      "marginPercentage" : 0.99
+                    }
+                  }
+                } ]
+              }
+            }
+          }
+        }
+      }
+    },
+    "before" : {
+      "trade" : {
+        "product" : {
+          "taxonomy" : [ {
+            "source" : "CFI",
+            "value" : {
+              "name" : {
+                "@data" : "LRSTXD"
+              }
+            }
+          }, {
+            "source" : "ISDA",
+            "value" : {
+              "name" : {
+                "@data" : "RepurchaseAgreement"
+              }
+            },
+            "calculated" : true
+          } ],
+          "economicTerms" : {
+            "effectiveDate" : {
+              "@key:external" : "PurchaseDate",
+              "adjustableDate" : {
+                "unadjustedDate" : "2021-03-19"
+              }
+            },
+            "terminationDate" : {
+              "@key:external" : "RepurchaseDate",
+              "adjustableDate" : {
+                "unadjustedDate" : "2021-03-22"
+              }
+            },
+            "payout" : [ {
+              "@type" : "cdm.product.asset.InterestRatePayout",
+              "payerReceiver" : {
+                "payer" : "Party1",
+                "receiver" : "Party2"
+              },
+              "priceQuantity" : {
+                "quantitySchedule" : {
+                  "@ref:scoped" : "quantity-1"
+                }
+              },
+              "principalPayment" : {
+                "initialPayment" : true,
+                "finalPayment" : true,
+                "intermediatePayment" : false
+              },
+              "rateSpecification" : {
+                "@type" : "cdm.product.asset.FixedRateSpecification",
+                "rateSchedule" : {
+                  "price" : {
+                    "@ref:scoped" : "price-1"
+                  }
+                }
+              },
+              "dayCountFraction" : {
+                "@data" : "ACT/360"
+              }
+            } ],
+            "collateral" : {
+              "collateralPortfolio" : [ {
+                "collateralPosition" : [ {
+                  "product" : {
+                    "@type" : "cdm.product.template.TransferableProduct",
+                    "asset" : {
+                      "@type" : "cdm.base.staticdata.asset.common.Security",
+                      "identifier" : [ {
+                        "identifier" : {
+                          "@data" : "GB00B24FF097"
+                        },
+                        "identifierType" : "ISIN"
+                      } ]
+                    },
+                    "economicTerms" : {
+                      "payout" : [ {
+                        "@type" : "cdm.product.template.AssetPayout",
+                        "payerReceiver" : {
+                          "payer" : "Party2",
+                          "receiver" : "Party1"
+                        },
+                        "priceQuantity" : {
+                          "quantitySchedule" : {
+                            "@ref:scoped" : "quantity-2"
+                          }
+                        },
+                        "principalPayment" : {
+                          "initialPayment" : true,
+                          "finalPayment" : true,
+                          "intermediatePayment" : false
+                        },
+                        "assetLeg" : [ {
+                          "settlementDate" : {
+                            "relativeDate" : {
+                              "periodMultiplier" : 0,
+                              "period" : "D",
+                              "businessDayConvention" : "NotApplicable",
+                              "dateRelativeTo" : {
+                                "@ref" : "3f28d3",
+                                "@ref:external" : "PurchaseDate"
+                              }
+                            }
+                          },
+                          "deliveryMethod" : "DeliveryVersusPayment"
+                        }, {
+                          "settlementDate" : {
+                            "relativeDate" : {
+                              "periodMultiplier" : 0,
+                              "period" : "D",
+                              "businessDayConvention" : "NotApplicable",
+                              "dateRelativeTo" : {
+                                "@ref" : "3f28d6",
+                                "@ref:external" : "RepurchaseDate"
+                              }
+                            }
+                          },
+                          "deliveryMethod" : "DeliveryVersusPayment"
+                        } ],
+                        "underlier" : {
+                          "@type" : "cdm.base.staticdata.asset.common.Security",
+                          "identifier" : [ {
+                            "identifier" : {
+                              "@data" : "GB00B24FF097"
+                            },
+                            "identifierType" : "ISIN"
+                          } ]
+                        }
+                      } ]
+                    }
+                  }
+                } ]
+              } ],
+              "collateralProvisions" : {
+                "collateralType" : "Cash",
+                "eligibleCollateral" : [ {
+                  "treatment" : {
+                    "valuationTreatment" : {
+                      "marginPercentage" : 0.99
+                    }
+                  }
+                } ]
+              }
+            }
+          }
+        },
+        "tradeLot" : [ {
+          "priceQuantity" : [ {
+            "price" : [ {
+              "@key:scoped" : "price-1",
+              "value" : 0.004,
+              "unit" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              },
+              "perUnitOf" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              },
+              "priceType" : "InterestRate"
+            } ],
+            "quantity" : {
+              "@key:scoped" : "quantity-1",
+              "value" : 9974250,
+              "unit" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              }
+            }
+          }, {
+            "price" : [ {
+              "@key:scoped" : "price-2",
+              "value" : 1.0075,
+              "unit" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              },
+              "perUnitOf" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              },
+              "priceType" : "AssetPrice",
+              "priceExpression" : "PercentageOfNotional"
+            } ],
+            "quantity" : {
+              "@key:scoped" : "quantity-2",
+              "value" : 10000000,
+              "unit" : {
+                "currency" : {
+                  "@data" : "GBP"
+                }
+              }
+            },
+            "observable" : {
+              "@key:scoped" : "observable-1",
+              "@data" : {
+                "@type" : "cdm.base.staticdata.asset.common.Security",
+                "identifier" : [ {
+                  "identifier" : {
+                    "@data" : "GB00B24FF097"
+                  },
+                  "identifierType" : "ISIN"
+                } ]
+              }
+            }
+          } ]
+        } ],
+        "counterparty" : [ {
+          "role" : "Party1",
+          "partyReference" : {
+            "@key:external" : "GlobalBank",
+            "name" : {
+              "@data" : "Global Bank Inc"
+            }
+          }
+        }, {
+          "role" : "Party2",
+          "partyReference" : {
+            "@key:external" : "UkBank",
+            "name" : {
+              "@data" : "UK Bank plc"
+            }
+          }
+        } ],
+        "tradeIdentifier" : [ {
+          "issuer" : {
+            "@data" : "KTKLLEILLLLLLLLLLLLL"
+          },
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@scheme" : "UnqTradIdr",
+              "@data" : "KTKLLEILLLLLLLLLLLLL-FISG1G1LENDFP0028303002"
+            }
+          } ]
+        } ],
+        "tradeDate" : {
+          "@data" : "2021-03-18"
+        },
+        "party" : [ {
+          "@key:external" : "GlobalBank",
+          "name" : {
+            "@data" : "Global Bank Inc"
+          }
+        }, {
+          "@key:external" : "UkBank",
+          "name" : {
+            "@data" : "UK Bank plc"
+          }
+        } ],
+        "partyRole" : [ {
+          "partyReference" : {
+            "@ref:external" : "GlobalBank"
+          },
+          "role" : "Seller"
+        }, {
+          "partyReference" : {
+            "@ref:external" : "UkBank"
+          },
+          "role" : "Buyer"
+        } ]
+      },
+      "state" : {
+        "positionState" : "Executed"
+      }
+    }
+  } ],
+  "eventQualifier" : "Renegotiation",
+  "after" : [ {
+    "trade" : {
+      "product" : {
+        "taxonomy" : [ {
+          "source" : "CFI",
+          "value" : {
+            "name" : {
+              "@data" : "LRSTXD"
+            }
+          }
+        }, {
+          "source" : "ISDA",
+          "value" : {
+            "name" : {
+              "@data" : "RepurchaseAgreement"
+            }
+          },
+          "calculated" : true
+        } ],
+        "economicTerms" : {
+          "effectiveDate" : {
+            "adjustableDate" : {
+              "unadjustedDate" : "2021-03-20"
+            }
+          },
+          "terminationDate" : {
+            "@key:external" : "RepurchaseDate",
+            "adjustableDate" : {
+              "unadjustedDate" : "2021-03-22"
+            }
+          },
+          "payout" : [ {
+            "@type" : "cdm.product.asset.InterestRatePayout",
+            "payerReceiver" : {
+              "payer" : "Party1",
+              "receiver" : "Party2"
+            },
+            "priceQuantity" : {
+              "quantitySchedule" : {
+                "@ref:scoped" : "quantity-1"
+              }
+            },
+            "principalPayment" : {
+              "initialPayment" : true,
+              "finalPayment" : true,
+              "intermediatePayment" : false
+            },
+            "rateSpecification" : {
+              "@type" : "cdm.product.asset.FixedRateSpecification",
+              "rateSchedule" : {
+                "price" : {
+                  "@ref:scoped" : "price-1"
+                }
+              }
+            },
+            "dayCountFraction" : {
+              "@data" : "ACT/360"
+            }
+          } ],
+          "collateral" : {
+            "collateralPortfolio" : [ {
+              "collateralPosition" : [ {
+                "product" : {
+                  "@type" : "cdm.product.template.NonTransferableProduct",
+                  "economicTerms" : {
+                    "payout" : [ {
+                      "@type" : "cdm.product.template.AssetPayout",
+                      "payerReceiver" : {
+                        "payer" : "Party1",
+                        "receiver" : "Party2"
+                      },
+                      "priceQuantity" : {
+                        "quantitySchedule" : {
+                          "@ref:scoped" : "quantity-2"
+                        }
+                      },
+                      "principalPayment" : {
+                        "initialPayment" : true,
+                        "finalPayment" : true,
+                        "intermediatePayment" : false
+                      },
+                      "assetLeg" : [ {
+                        "settlementDate" : {
+                          "relativeDate" : {
+                            "periodMultiplier" : 0,
+                            "period" : "D",
+                            "businessDayConvention" : "NotApplicable",
+                            "dateRelativeTo" : {
+                              "@ref" : "3f28d3",
+                              "@ref:external" : "PurchaseDate"
+                            }
+                          }
+                        },
+                        "deliveryMethod" : "DeliveryVersusPayment"
+                      }, {
+                        "settlementDate" : {
+                          "relativeDate" : {
+                            "periodMultiplier" : 0,
+                            "period" : "D",
+                            "businessDayConvention" : "NotApplicable",
+                            "dateRelativeTo" : {
+                              "@ref" : "3f28d6",
+                              "@ref:external" : "RepurchaseDate"
+                            }
+                          }
+                        },
+                        "deliveryMethod" : "DeliveryVersusPayment"
+                      } ],
+                      "underlier" : {
+                        "@type" : "cdm.base.staticdata.asset.common.Security",
+                        "identifier" : [ {
+                          "identifier" : {
+                            "@data" : "GB00BMGR2916"
+                          },
+                          "identifierType" : "ISIN"
+                        } ]
+                      }
+                    } ]
+                  }
+                }
+              } ]
+            } ],
+            "collateralProvisions" : {
+              "collateralType" : "Cash",
+              "eligibleCollateral" : [ {
+                "treatment" : {
+                  "valuationTreatment" : {
+                    "marginPercentage" : 0.99
+                  }
+                }
+              } ]
+            }
+          }
+        }
+      },
+      "tradeLot" : [ {
+        "priceQuantity" : [ {
+          "price" : [ {
+            "@key:scoped" : "price-1",
+            "value" : 0.004,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "InterestRate"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-1",
+            "value" : 9974250,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          }
+        }, {
+          "price" : [ {
+            "@key:scoped" : "price-2",
+            "value" : 1.0075,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "AssetPrice",
+            "priceExpression" : "PercentageOfNotional"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-2",
+            "value" : 10000000,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          },
+          "observable" : {
+            "@key:scoped" : "observable-1",
+            "@data" : {
+              "@type" : "cdm.base.staticdata.asset.common.Security",
+              "identifier" : [ {
+                "identifier" : {
+                  "@data" : "GB00B24FF097"
+                },
+                "identifierType" : "ISIN"
+              } ]
+            }
+          }
+        } ]
+      } ],
+      "counterparty" : [ {
+        "role" : "Party1",
+        "partyReference" : {
+          "@key:external" : "GlobalBank",
+          "name" : {
+            "@data" : "Global Bank Inc"
+          }
+        }
+      }, {
+        "role" : "Party2",
+        "partyReference" : {
+          "@key:external" : "UkBank",
+          "name" : {
+            "@data" : "UK Bank plc"
+          }
+        }
+      } ],
+      "tradeIdentifier" : [ {
+        "issuer" : {
+          "@data" : "KTKLLEILLLLLLLLLLLLL"
+        },
+        "assignedIdentifier" : [ {
+          "identifier" : {
+            "@scheme" : "UnqTradIdr",
+            "@data" : "KTKLLEILLLLLLLLLLLLL-FISG1G1LENDFP0028303002"
+          }
+        } ]
+      } ],
+      "tradeDate" : {
+        "@data" : "2021-03-18"
+      },
+      "party" : [ {
+        "@key:external" : "GlobalBank",
+        "name" : {
+          "@data" : "Global Bank Inc"
+        }
+      }, {
+        "@key:external" : "UkBank",
+        "name" : {
+          "@data" : "UK Bank plc"
+        }
+      } ],
+      "partyRole" : [ {
+        "partyReference" : {
+          "@ref:external" : "GlobalBank"
+        },
+        "role" : "Seller"
+      }, {
+        "partyReference" : {
+          "@ref:external" : "UkBank"
+        },
+        "role" : "Buyer"
+      } ]
+    }
+  } ]
+}

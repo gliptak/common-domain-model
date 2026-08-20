@@ -67,7 +67,7 @@ public class CreateNovationEventTest extends AbstractExampleTest {
      */
     private WorkflowStep getWorkflowStepInstruction() throws IOException {
         // Trade to be novated.  Note that all references are resolved here.
-        TradeState beforeTradeState = ResourcesUtils.getObjectAndResolveReferences(TradeState.class, "result-json-files/fpml-5-10/products/rates/USD-Vanilla-swap.json");
+        TradeState beforeTradeState = ResourcesUtils.getObjectAndResolveReferences(TradeState.class, "ingest/output/fpml-confirmation-to-trade-state/fpml-5-10-products-rates/USD-Vanilla-swap.json");
 
         Date eventDate = Date.of(2013, 2, 12);
 
@@ -94,7 +94,7 @@ public class CreateNovationEventTest extends AbstractExampleTest {
                         .setQuantityChange(QuantityChangeInstruction.builder()
                                 .setDirection(QuantityChangeDirectionEnum.REPLACE)
                                 .addChange(PriceQuantity.builder()
-                                        .addQuantityValue(NonNegativeQuantitySchedule.builder()
+                                        .setQuantityValue(NonNegativeQuantitySchedule.builder()
                                                 .setValue(BigDecimal.valueOf(0.0))
                                                 .setUnit(UnitType.builder()
                                                         .setCurrency(FieldWithMetaString.builder()

@@ -1,0 +1,294 @@
+{
+  "instruction" : [ {
+    "primitiveInstruction" : {
+      "contractFormation" : {
+        "legalAgreement" : [ {
+          "agreementDate" : "2021-03-18",
+          "contractualParty" : [ {
+            "@ref" : "1ef4886d",
+            "@ref:external" : "UkBank"
+          }, {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          } ]
+        } ]
+      },
+      "execution" : {
+        "product" : {
+          "@key" : "975c33bf"
+        },
+        "priceQuantity" : [ {
+          "@key" : "b0764d1a",
+          "price" : [ {
+            "@key:scoped" : "price-1",
+            "value" : 0.004,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "InterestRate"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-1",
+            "value" : 9974250,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          }
+        }, {
+          "@key" : "f6e7e886",
+          "price" : [ {
+            "@key:scoped" : "price-2",
+            "value" : 1.0075,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "AssetPrice",
+            "priceExpression" : "PercentageOfNotional"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-2",
+            "value" : 10000000,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          },
+          "observable" : {
+            "@key" : "1ad6d034"
+          }
+        } ],
+        "counterparty" : [ {
+          "role" : "Party1",
+          "partyReference" : {
+            "@key" : "296093b7",
+            "@key:external" : "GlobalBank",
+            "name" : {
+              "@data" : "Global Bank Inc"
+            }
+          }
+        }, {
+          "role" : "Party2",
+          "partyReference" : {
+            "@key" : "1ef4886d",
+            "@key:external" : "UkBank",
+            "name" : {
+              "@data" : "UK Bank plc"
+            }
+          }
+        } ],
+        "parties" : [ {
+          "@key" : "103f0",
+          "@key:external" : "ccp",
+          "name" : {
+            "@data" : "CCP"
+          }
+        }, {
+          "@key" : "1ef4886d",
+          "@key:external" : "UkBank",
+          "name" : {
+            "@data" : "UK Bank plc"
+          }
+        } ],
+        "partyRoles" : [ {
+          "partyReference" : {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          },
+          "role" : "Seller"
+        }, {
+          "partyReference" : {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          },
+          "role" : "ClearingOrganization"
+        }, {
+          "partyReference" : {
+            "@ref" : "1ef4886d",
+            "@ref:external" : "UkBank"
+          },
+          "role" : "Buyer"
+        } ],
+        "tradeDate" : {
+          "@key" : "3f28d2",
+          "@data" : "2021-03-18"
+        },
+        "tradeIdentifier" : [ {
+          "@key" : "4a82737e",
+          "issuer" : {
+            "@data" : "KTKLLEILLLLLLLLLLLLL"
+          },
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@scheme" : "UnqTradIdr",
+              "@data" : "KTKLLEILLLLLLLLLLLLL-FISG1G1LENDFP0028303002"
+            }
+          } ]
+        } ]
+      }
+    }
+  }, {
+    "primitiveInstruction" : {
+      "contractFormation" : {
+        "legalAgreement" : [ {
+          "agreementDate" : "2021-03-18",
+          "contractualParty" : [ {
+            "@ref" : "296093b7",
+            "@ref:external" : "GlobalBank"
+          }, {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          } ]
+        } ]
+      },
+      "execution" : {
+        "product" : {
+          "@key" : "975c33bf"
+        },
+        "priceQuantity" : [ {
+          "@key" : "b0764d1a",
+          "price" : [ {
+            "@key:scoped" : "price-1",
+            "value" : 0.004,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "InterestRate"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-1",
+            "value" : 9974250,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          }
+        }, {
+          "@key" : "f6e7e886",
+          "price" : [ {
+            "@key:scoped" : "price-2",
+            "value" : 1.0075,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            },
+            "priceType" : "AssetPrice",
+            "priceExpression" : "PercentageOfNotional"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-2",
+            "value" : 10000000,
+            "unit" : {
+              "currency" : {
+                "@data" : "GBP"
+              }
+            }
+          },
+          "observable" : {
+            "@key" : "1ad6d034"
+          }
+        } ],
+        "counterparty" : [ {
+          "role" : "Party1",
+          "partyReference" : {
+            "@key" : "296093b7",
+            "@key:external" : "GlobalBank",
+            "name" : {
+              "@data" : "Global Bank Inc"
+            }
+          }
+        }, {
+          "role" : "Party2",
+          "partyReference" : {
+            "@key" : "1ef4886d",
+            "@key:external" : "UkBank",
+            "name" : {
+              "@data" : "UK Bank plc"
+            }
+          }
+        } ],
+        "parties" : [ {
+          "@key" : "296093b7",
+          "@key:external" : "GlobalBank",
+          "name" : {
+            "@data" : "Global Bank Inc"
+          }
+        }, {
+          "@key" : "103f0",
+          "@key:external" : "ccp",
+          "name" : {
+            "@data" : "CCP"
+          }
+        } ],
+        "partyRoles" : [ {
+          "partyReference" : {
+            "@ref" : "296093b7",
+            "@ref:external" : "GlobalBank"
+          },
+          "role" : "Seller"
+        }, {
+          "partyReference" : {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          },
+          "role" : "Buyer"
+        }, {
+          "partyReference" : {
+            "@ref" : "103f0",
+            "@ref:external" : "ccp"
+          },
+          "role" : "ClearingOrganization"
+        } ],
+        "tradeDate" : {
+          "@key" : "3f28d2",
+          "@data" : "2021-03-18"
+        },
+        "tradeIdentifier" : [ {
+          "@key" : "4a82737e",
+          "issuer" : {
+            "@data" : "KTKLLEILLLLLLLLLLLLL"
+          },
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@scheme" : "UnqTradIdr",
+              "@data" : "KTKLLEILLLLLLLLLLLLL-FISG1G1LENDFP0028303002"
+            }
+          } ]
+        } ]
+      }
+    }
+  } ],
+  "intent" : "Clearing",
+  "eventDate" : "2021-03-18",
+  "effectiveDate" : null
+}

@@ -27,6 +27,7 @@ hs_err_pid*
 .classpath
 .project
 .settings/
+.junie
 
 # MacOS system files
 *.DS_Store
@@ -37,6 +38,7 @@ hs_err_pid*
 src-gen/
 src/main/generated-sources/
 target/
+/rosetta-project/
 
 /bin/
 /documentation/build/
@@ -59,6 +61,8 @@ venv/
 website/.docusaurus
 website/build
 website/node_modules
+website/static/schemas
+website/.schema-temp
 
 # CVE scan reports
 /reports/

@@ -7,7 +7,8 @@ import cdm.ingest.fpml.confirmation.party.*
 import cdm.ingest.fpml.confirmation.settlement.*
 import cdm.product.template.*
 
-import fpml.confirmation.* as fpml
+import fpml.consolidated.* as fpml
+import fpml.consolidated.fx.* as fpml
 
 func MapFxDigitalOptionNonTransferableProduct:
     inputs:
@@ -18,8 +19,12 @@ func MapFxDigitalOptionNonTransferableProduct:
 
     set nonTransferableProduct:
         NonTransferableProduct {
-            identifier: MapProductIdentifierList(fpmlFxDigitalOption -> productModel),
-            taxonomy: MapProductTaxonomyList(fpmlFxDigitalOption -> productModel),
+            identifier: MapProductIdentifierList(fpmlFxDigitalOption -> productId),
+            taxonomy: MapProductTaxonomyList(
+                        fpmlFxDigitalOption -> primaryAssetClass,
+                        fpmlFxDigitalOption -> secondaryAssetClass,
+                        fpmlFxDigitalOption -> productType
+                    ),
             economicTerms: MapFxDigitalOptionEconomicTerms(
                         fpmlFxDigitalOption,
                         cdmCounterpartyList
@@ -33,7 +38,23 @@ func MapFxDigitalOptionCounterpartyList:
         counterpartyList Counterparty (0..2)
 
     add counterpartyList:
-        MapBuyerSellerModelToCounterpartyList(fpmlFxDigitalOption -> buyerSellerModel)
+        MapBuyerSellerModelToCounterpartyList(
+                fpmlFxDigitalOption -> buyerPartyReference,
+                fpmlFxDigitalOption -> sellerPartyReference
+            )
+
+func MapFxDigitalOptionAncillaryPartyList:
+    inputs:
+        fpmlFxDigitalOption fpml.FxDigitalOption (0..1)
+        cdmCounterpartyList Counterparty (0..2)
+    output:
+        ancillaryPartyList AncillaryParty (0..*)
+
+    add ancillaryPartyList:
+        MapExerciseProcedureToAncillaryParty(
+                fpmlFxDigitalOption -> exerciseProcedure,
+                cdmCounterpartyList
+            )
 
 func MapFxDigitalOptionEconomicTerms:
     inputs:
@@ -60,14 +81,16 @@ func MapFxDigitalOptionPayout:
             OptionPayout:
                 OptionPayout {
                     payerReceiver: MapSellerAsPayerAndBuyerAsReceiver(
-                                fpmlFxDigitalOption -> buyerSellerModel,
+                                fpmlFxDigitalOption -> sellerPartyReference,
+                                fpmlFxDigitalOption -> buyerPartyReference,
                                 cdmCounterpartyList
                             ),
                     settlementTerms: MapFxDigitalOptionToSettlementTerms(
                                 fpmlFxDigitalOption
                             ),
                     buyerSeller: MapBuyerSeller(
-                                fpmlFxDigitalOption -> buyerSellerModel,
+                                fpmlFxDigitalOption -> buyerPartyReference,
+                                fpmlFxDigitalOption -> sellerPartyReference,
                                 cdmCounterpartyList
                             ),
                     underlier: empty,
@@ -75,7 +98,8 @@ func MapFxDigitalOptionPayout:
                                 GetFpmlFxDigitalExercise(fpmlFxDigitalOption),
                                 fpmlFxDigitalOption -> exerciseProcedure,
                                 empty,
-                                fpmlFxDigitalOption -> buyerSellerModel,
+                                fpmlFxDigitalOption -> buyerPartyReference,
+                                fpmlFxDigitalOption -> sellerPartyReference,
                                 cdmCounterpartyList
                             ),
                     ...

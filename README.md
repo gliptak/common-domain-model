@@ -1,7 +1,7 @@
 [![Codefresh build status]( https://g.codefresh.io/api/badges/pipeline/regnosysops/FINOS%2Fcommon-domain-model?type=cf-1)]( https://g.codefresh.io/public/accounts/regnosysops/pipelines/new/63ecb79bde06416b39d81e70)
 [![GitHub Actions Build](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml/badge.svg)](https://github.com/finos/common-domain-model/actions/workflows/build-deploy.yml)
 
-[![FINOS - Active](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-active.svg)](https://community.finos.org/docs/governance/Software-Projects/stages/active)
+[![FINOS - Graduated](https://cdn.jsdelivr.net/gh/finos/contrib-toolbox@master/images/badge-graduated.svg)](https://community.finos.org/docs/governance/lifecycle-stages/graduated)
 [![OpenSSF Best Practices](https://www.bestpractices.dev/projects/11267/badge)](https://www.bestpractices.dev/projects/11267)
 
 # Common Domain Model (CDM)
@@ -18,10 +18,9 @@ A single, digital processing standard for trade events and actions enhances fina
 - Accelerates financial technology innovation by providing a common, readily operational foundation for how technologies like distributed ledger, smart contracts, cloud computing, and artificial intelligence can be applied to financial markets.
 - Delivers better regulatory oversight, promotes transparency and alignment between regulators and market participants and enables consistency in regulatory reporting, by providing a standard representation of trade data and supporting machine executable reporting requirements.
 
-The Common Domain Model is an open standard project hosted under FINOS, the [Fintech Open Source Foundation](https://community.finos.org/docs/governance/Standards-Projects), starting in February 2023. The standard is developed through the [Community Specification](https://community.finos.org/docs/governance/#open-standard-projects) open governance process, and underlying code assets are released under the [Community Specification License 1.0](https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/4._License.md). To participate in the standard process and working group meetings, [enroll as a participant](https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/Getting%20Started.md#best-practices) by completing a [Community Specification Contributor License Agreement](https://community.finos.org/docs/governance/Standards-Projects#ip-licensing-requirements) (CSL CLA).  All meetings are to be held [in accordance with the FINOS policies and procedures](https://community.finos.org/docs/governance/meeting-procedures).
+The Common Domain Model is an open standard project hosted under FINOS, the [Fintech Open Source Foundation](https://www.finos.org/), starting in February 2023. The standard is developed through the [Community Specification](https://community.finos.org/docs/governance/#open-standard-projects) open governance process, and underlying code assets are released under the [Community Specification License 1.0](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/1._Community_Specification_License-v1.md). To participate in the standard process and working group meetings, [enroll as a participant](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/participants.md#how-to-enroll-as-a-participant) by completing a [Community Specification Contributor License Agreement](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/0._CS_Contributor_License_Agreement.md) (CSL CLA).  All meetings are to be held [in accordance with the FINOS policies and procedures](https://community.finos.org/docs/governance/meeting-procedures).
 
 To subscribe to our mailing list using the following [link](mailto:cdm+subscribe@lists.finos.org).
-
 
 
 ## CDM Design Principles
@@ -41,14 +40,20 @@ Ways to interact with the CDM community:
 
 * **GitHub**: CDM activity primarily happens in this [CDM GitHub repository](https://github.com/finos/common-domain-model). [Watch](https://docs.github.com/en/account-and-profile/managing-subscriptions-and-notifications-on-github/setting-up-notifications/configuring-notifications#configuring-your-watch-settings-for-an-individual-repository) the repository in order to be notified of new Pull Requests and issues.
 * **Email**: If you'd like to receive official updates, please send an email to help@finos.org. You can join the CDM mailing list by sending an email to [cdm+subscribe@lists.finos.org](mailto:cdm+subscribe@lists.finos.org). 
-* **Meetings**: Finally, another great way to interact with the community is to attend the Working Groups.  Email help@finos.org to be added to the meeting invites directly, or find the meeting in the [FINOS Community Calendar](https://calendar.google.com/calendar/embed?src=finos.org_fac8mo1rfc6ehscg0d80fi8jig%40group.calendar.google.com). 
+* **Meetings**: Finally, another great way to interact with the community is to attend the Working Groups.  Email help@finos.org to be added to the meeting invites directly, or find the meeting in the [FINOS Community Calendar](https://calendar.google.com/calendar/embed?src=finos.org_fac8mo1rfc6ehscg0d80fi8jig%40group.calendar.google.com).
+* **CDM Training**: **Introduction to the CDM (LFEL1016)**: A 90-minute Express Learning course covering the fundamentals of the Common Domain Model - how it standardizes data for financial products, trades, and lifecycle events to improve interoperability across technologies. [Enroll here](https://training.linuxfoundation.org/training/introduction-to-the-common-domain-model-cdm-lfel1016/). **CDM Collateral Start-up Guide**: A set of short tutorials designed for business users to explore the CDM in the context of collateral management. This hands-on resource walks through features, tools, and implementation approaches. [Learn more](https://www.isda.org/2023/02/16/isda-collateral-initiatives/)
+
 
 > &#128161; Tip<br>
 > **Need help?**  Email help@finos.org. if you need help getting started in the CDM Community or if you encounter technical difficulties accessing repositories, mailing lists or meetings. 
 
 ## Roadmap
 
-- The latest CDM roadmap of expected contributions sponsored by the presently participating trade associations: ICMA, ISDA and ISLA can be found under [Roadmap.md](ROADMAP.md).
+- Each year, the chairs of the CDM Working Groups collaborate with the three participating trade associations (ISDA, ICMA and ISLA) to prepare plans for the coming year.
+- View the following resources:
+  - [2026 CDM Roadmaps](ROADMAP26.md):  outlines planned contributions and deliverables from each Working Group 
+  - [2026 CDM Schedule](SCHEDULE26.md):  outlines the plans for CDM releases 
+  - [Prior Year's Roadmaps](ROADMAP.md).
 
 - Releases can be tracked on the [CDM Releases](https://github.com/finos/common-domain-model/releases/tag/5.0.0-dev.7) page.
 
@@ -58,7 +63,7 @@ Ways to interact with the CDM community:
 > &#10071; Important<br>
 > If you wish to add a new feature, make a change to the model, or fix a defect, you should start by raising an Issue in GitHub.  To implement changes in the CDM repository resolving an issue, you shoud raise a Pull Request.  
 
-Please read our [development guidelines](https://cdm.finos.org/docs/dev-guidelines), [contribution guidelines](CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct). See guidelines for the licensing agreement [here](https://github.com/finos/common-domain-model/blob/master/.github/CONTRIBUTING.md).  
+Please read our [development guidelines](https://cdm.finos.org/docs/dev-guidelines), [contribution guidelines](CONTRIBUTING.md) and [Community Code of Conduct](https://www.finos.org/code-of-conduct). See guidelines for the licensing agreement [here](LICENSE.md).
 
 > &#8505; Note<br>
 > Commits and pull requests to FINOS repositories will only be accepted from those contributors with an active, executed Individual Contributor License Agreement (ICLA) with FINOS, OR who are covered under an existing and active Corporate Contribution License Agreement (CCLA) executed with FINOS. Commits from individuals not covered under an ICLA or CCLA will be flagged and blocked by the Linux Foundation EasyCLA tool. Please note that some CCLAs require individuals/employees to be explicitly named on the CCLA. Need an ICLA? Unsure if you are covered under an existing CCLA? Email help@finos.org.
@@ -67,7 +72,7 @@ Please read our [development guidelines](https://cdm.finos.org/docs/dev-guidelin
 
 The CDM Governance process defines the roles of the Maintainers and Working Groups to oversee changes to the model.  The sponsoring Trade Associations (ISDA, ISLA and ICMA) have commissioned REGnosys to provide the CDM Release Management Service to ensure that changes are advanced in a transparent and efficient manner.
 
-![](.github/cdm-release-mgmt.png)
+![CDM Contribution Workflow](docs/cdm-contribution-workflow.png)
 
 ### Pull Requests via Rosetta
 
@@ -83,7 +88,7 @@ Steps:
 
 1. Fork it (https://github.com/finos/common-domain-model)
 1. Create your feature branch (`git checkout -b feature/my-new-feature`)
-1. Make a change - _hint_ you can make changes to Rosetta files directly on your desktop using the [Rosetta VS Code plugin](https://github.com/REGnosys/rosetta-dsl/tree/master/rosetta-ide/vscode)
+1. Make a change - _hint_ you can make changes to Rosetta files directly on your desktop using the [Rosetta VS Code plugin](https://github.com/finos/rune-dsl/tree/main/rune-ide/vscode)
 1. Commit your changes (`git commit -am 'My New Feature'`)
 1. Push to the branch (`git push origin feature/my-new-feature`)
 1. Create a new Pull Request
@@ -91,17 +96,17 @@ Steps:
 
 ## Documentation
 
-The CDM has extensive documentation which is kept up to date. Any change to the CDM should be accompanied by documentation. See docs guide [here](https://cdm.finos.org/docs/contribution#documentation-style-guide)
+The CDM has extensive documentation which is kept up to date. Any change to the CDM should be accompanied by documentation. See docs guide [here](https://cdm.finos.org/docs/dev-guidelines/#documentation)
 
 ## Governance overview
 
 ### Roles
 
-The CSL specifies [three different contribution roles](https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/5._Governance.md#1roles) for each specific Working Group:
+The CSL specifies [three different contribution roles](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/5._Governance.md#1roles) for each specific Working Group:
 
 * Maintainers - those who drive consensus within the working group
 * [Editors](https://github.com/finos/common-domain-model/blob/master/GOVERNANCE.md#1-roles) - those who codify ideas into a formal specification
-* Participants - anyone who provides contributions to the project under a signed CSL CLA. A great way to sign the CLA is to open a Pull Request to add your name to the [Participants.md](https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/participants.md) file. 
+* Participants - anyone who provides contributions to the project under a signed CSL CLA. A great way to sign the CLA is to open a Pull Request to add your name to the [Participants.md](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/participants.md) file.
 
 ### Active Working Groups
 
@@ -121,7 +126,7 @@ The following Working Groups are currently active in this project:
 
 Changes to the CDM may be proposed by anyone but are governed by the process described here.
 
-![](.github/finos-cdm-governance-structure.png)
+![](.github/FINOS-CDM-Working-Groups.png)
 
 ## Working Groups
 
@@ -134,7 +139,7 @@ Changes to the CDM may be proposed by anyone but are governed by the process des
 
 **CDM Steering Working Group.** The CDM Steering Working Group will review and approve completed Working Group formation proposals per 2.1.0.
 
-![](.github/Group-Roles-Scope.png)
+![](.github/CDM-Governance-Landscape.png)
 
 **CDM Steering Working Group Purpose:** The Steering Working Group is responsible for developing the technical and modelling guidelines, setting and revising the project’s strategic roadmap, and for vetting proposed changes. The CDM Steering Working Group may approve or establish additional working groups.
 
@@ -155,7 +160,7 @@ A list of Maintainers along with their type will be kept visible within the gove
 
 Proposals for an entity to be given maintainership status or to have maintainership rescinded should be made at a Steering Group, with final approval or rejection at the following Steering Group to ensure fair notice for all. Proposals should be sent to the Steering Group chair to add to the agenda.
 
-**CDM Steering Working Group Decision Making:** As outlined in [governance.md](https://github.com/finos/standards-project-blueprint/blob/master/governance-documents/5._Governance.md#2decision-making), The CDM Steering Working Group will operate by consensus-based decision-making. Maintainers are responsible for determining and documenting when consensus has been reached. In the event a clear consensus is not reached, Maintainers may call for a simple majority vote of Participants to determine outcomes.
+**CDM Steering Working Group Decision Making:** As outlined in [governance.md](https://github.com/finos/standards-project-blueprint/blob/main/governance-documents/5._Governance.md#2decision-making), The CDM Steering Working Group will operate by consensus-based decision-making. Maintainers are responsible for determining and documenting when consensus has been reached. In the event a clear consensus is not reached, Maintainers may call for a simple majority vote of Participants to determine outcomes.
 
 **CDM Steering Working Group Appointment of the Editor(s):** Editors will review and implement pull requests not expressed in code, test and release new functionalities, resolve bugs and implement approved improvements. 
 
@@ -183,6 +188,21 @@ The following are the FINOS CDM maintainers and the firms they represent.
 | Nicholas Moger       | JPMorgan Chase & Co.|  OrgRep                                | nicholas-moger         | 
 
 If you would like to get in touch with the CDM maintainer team, contact them through their mailing list at [https://lists.finos.org/g/cdm-maintainers](https://lists.finos.org/g/cdm-maintainers). **You can do so by first subscribing at [cdm-maintainers+subscribe@lists.finos.org](mailto:cdm-maintainers+subscribe@lists.finos.org) and posting at [cdm-maintainers@lists.finos.org](mailto:cdm-maintainers@lists.finos.org) .**
+
+## How to release a new version of the CDM Project
+
+1. Go to the [releases](https://github.com/finos/common-domain-model/releases) page.
+2. Click on `Draft a new release`.
+3. Make sure the correct target branch is selected e.g `master`, `6.x.x` or `5.x.x`.
+4. In the `Select Tag` box, the latest version will be the top.
+5. Increment that [semantic version](https://semver.org/spec/v2.0.0.html) and enter in the `Select Tag` box and click `Create new tag`.
+6. Click on `Generate release notes`. This will generate the title and changelog based on the commits since the last release.
+7. The generated release notes will have links to the Pull Requests that were merged since the last release.
+8. For each PR generated by Rosetta, there will be a release note as a comment of the PR. Replace each PR link with PR Release Notes.
+9. Click Publish release.
+10. The release will trigger a build in the CI/CD pipeline.
+11. The build will publish the new version of the CDM Project to the Artifact Registry.
+12. The release will also trigger a notification email to the project maintainers.
 
 ## CI/CD Pipeline
 

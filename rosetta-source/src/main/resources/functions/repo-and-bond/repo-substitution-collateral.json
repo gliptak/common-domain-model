@@ -1,0 +1,68 @@
+{
+  "@model" : "cdm",
+  "@type" : "cdm.product.collateral.Collateral",
+  "@version" : "0.0.0.master-SNAPSHOT",
+  "@key" : "c98eddbd",
+  "collateralPortfolio" : [ {
+    "collateralPosition" : [ {
+      "product" : {
+        "@type" : "cdm.product.template.NonTransferableProduct",
+        "economicTerms" : {
+          "payout" : [ {
+            "@type" : "cdm.product.template.AssetPayout",
+            "payerReceiver" : {
+              "payer" : "Party1",
+              "receiver" : "Party2"
+            },
+            "priceQuantity" : {
+              "quantitySchedule" : {
+                "@ref:scoped" : "quantity-2"
+              }
+            },
+            "principalPayment" : {
+              "initialPayment" : true,
+              "finalPayment" : true,
+              "intermediatePayment" : false
+            },
+            "assetLeg" : [ {
+              "settlementDate" : {
+                "relativeDate" : {
+                  "periodMultiplier" : 0,
+                  "period" : "D",
+                  "businessDayConvention" : "NotApplicable",
+                  "dateRelativeTo" : {
+                    "@ref" : "3f28d3",
+                    "@ref:external" : "PurchaseDate"
+                  }
+                }
+              },
+              "deliveryMethod" : "DeliveryVersusPayment"
+            }, {
+              "settlementDate" : {
+                "relativeDate" : {
+                  "periodMultiplier" : 0,
+                  "period" : "D",
+                  "businessDayConvention" : "NotApplicable",
+                  "dateRelativeTo" : {
+                    "@ref" : "3f28d6",
+                    "@ref:external" : "RepurchaseDate"
+                  }
+                }
+              },
+              "deliveryMethod" : "DeliveryVersusPayment"
+            } ],
+            "underlier" : {
+              "@type" : "cdm.base.staticdata.asset.common.Security",
+              "identifier" : [ {
+                "identifier" : {
+                  "@data" : "GB00BMGR2916"
+                },
+                "identifierType" : "ISIN"
+              } ]
+            }
+          } ]
+        }
+      }
+    } ]
+  } ]
+}

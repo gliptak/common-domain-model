@@ -1,0 +1,187 @@
+[ {
+  "priceQuantity" : [ {
+    "@key" : "d800cb24",
+    "price" : [ {
+      "value" : 0.004,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "InterestRate"
+    } ],
+    "quantity" : {
+      "value" : 3989700,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    }
+  }, {
+    "@key" : "2a652da5",
+    "price" : [ {
+      "value" : 1.0075,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "AssetPrice",
+      "priceExpression" : "PercentageOfNotional"
+    } ],
+    "quantity" : {
+      "value" : 4000000,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    },
+    "observable" : {
+      "@data" : {
+        "@type" : "cdm.base.staticdata.asset.common.Security",
+        "identifier" : [ {
+          "identifier" : {
+            "@data" : "GB00B24FF097"
+          },
+          "identifierType" : "ISIN"
+        } ]
+      }
+    }
+  } ]
+}, {
+  "priceQuantity" : [ {
+    "@key" : "d800cb24",
+    "price" : [ {
+      "value" : 0.004,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "InterestRate"
+    } ],
+    "quantity" : {
+      "value" : 3989700,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    }
+  }, {
+    "@key" : "2a652da5",
+    "price" : [ {
+      "value" : 1.0075,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "AssetPrice",
+      "priceExpression" : "PercentageOfNotional"
+    } ],
+    "quantity" : {
+      "value" : 4000000,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    },
+    "observable" : {
+      "@data" : {
+        "@type" : "cdm.base.staticdata.asset.common.Security",
+        "identifier" : [ {
+          "identifier" : {
+            "@data" : "GB00B24FF097"
+          },
+          "identifierType" : "ISIN"
+        } ]
+      }
+    }
+  } ]
+}, {
+  "priceQuantity" : [ {
+    "@key" : "50cb3ba4",
+    "price" : [ {
+      "value" : 0.004,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "InterestRate"
+    } ],
+    "quantity" : {
+      "value" : 1994850,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    }
+  }, {
+    "@key" : "8f106a23",
+    "price" : [ {
+      "value" : 1.0075,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "perUnitOf" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      },
+      "priceType" : "AssetPrice",
+      "priceExpression" : "PercentageOfNotional"
+    } ],
+    "quantity" : {
+      "value" : 2000000,
+      "unit" : {
+        "currency" : {
+          "@data" : "GBP"
+        }
+      }
+    },
+    "observable" : {
+      "@data" : {
+        "@type" : "cdm.base.staticdata.asset.common.Security",
+        "identifier" : [ {
+          "identifier" : {
+            "@data" : "GB00B24FF097"
+          },
+          "identifierType" : "ISIN"
+        } ]
+      }
+    }
+  } ]
+} ]

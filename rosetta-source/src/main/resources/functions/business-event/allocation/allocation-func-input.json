@@ -1,0 +1,478 @@
+{
+  "instruction" : [ {
+    "primitiveInstruction" : {
+      "split" : {
+        "breakdown" : [ {
+          "partyChange" : {
+            "counterparty" : {
+              "role" : "Party2",
+              "partyReference" : {
+                "@key" : "14c27c88",
+                "@key:external" : "party3",
+                "partyId" : [ {
+                  "@key" : "b08711",
+                  "identifier" : {
+                    "@scheme" : "http://www.fpml.org/coding-scheme/external/iso17442",
+                    "@data" : "LEI2CP00A1"
+                  },
+                  "identifierType" : "LEI"
+                } ],
+                "name" : {
+                  "@data" : "Fund 2"
+                }
+              }
+            },
+            "tradeId" : [ {
+              "@key" : "651634bf",
+              "issuer" : {
+                "@scheme" : "http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier",
+                "@data" : "LEI1RPT001"
+              },
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@scheme" : "http://www.fpml.org/coding-scheme/external/unique-transaction-identifier",
+                  "@data" : "LEI1RPT001POST1"
+                }
+              } ],
+              "identifierType" : "UniqueTransactionIdentifier"
+            } ]
+          },
+          "quantityChange" : {
+            "change" : [ {
+              "@key" : "b21aa069",
+              "quantity" : {
+                "value" : 7000.0,
+                "unit" : {
+                  "currency" : {
+                    "@data" : "EUR"
+                  }
+                }
+              }
+            } ],
+            "direction" : "Replace"
+          }
+        }, {
+          "partyChange" : {
+            "counterparty" : {
+              "role" : "Party2",
+              "partyReference" : {
+                "@key" : "90c6207",
+                "@key:external" : "party4",
+                "partyId" : [ {
+                  "@key" : "6891b40f",
+                  "identifier" : {
+                    "@scheme" : "http://www.fpml.org/coding-scheme/external/iso17442",
+                    "@data" : "LEI3CP00A2"
+                  },
+                  "identifierType" : "LEI"
+                } ],
+                "name" : {
+                  "@data" : "Fund 3"
+                }
+              }
+            },
+            "tradeId" : [ {
+              "@key" : "651634de",
+              "issuer" : {
+                "@scheme" : "http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier",
+                "@data" : "LEI1RPT001"
+              },
+              "assignedIdentifier" : [ {
+                "identifier" : {
+                  "@scheme" : "http://www.fpml.org/coding-scheme/external/unique-transaction-identifier",
+                  "@data" : "LEI1RPT001POST2"
+                }
+              } ],
+              "identifierType" : "UniqueTransactionIdentifier"
+            } ]
+          },
+          "quantityChange" : {
+            "change" : [ {
+              "@key" : "de81b365",
+              "quantity" : {
+                "value" : 3000.0,
+                "unit" : {
+                  "currency" : {
+                    "@data" : "EUR"
+                  }
+                }
+              }
+            } ],
+            "direction" : "Replace"
+          }
+        }, {
+          "quantityChange" : {
+            "change" : [ {
+              "@key" : "16df72",
+              "quantity" : {
+                "value" : 0.0,
+                "unit" : {
+                  "currency" : {
+                    "@data" : "EUR"
+                  }
+                }
+              }
+            } ],
+            "direction" : "Replace"
+          }
+        } ]
+      }
+    },
+    "before" : {
+      "@key" : "3b1c54bf",
+      "trade" : {
+        "@key" : "3b1c54bf",
+        "product" : {
+          "@key" : "82aad58",
+          "taxonomy" : [ {
+            "source" : "ISDA",
+            "value" : {
+              "name" : {
+                "@data" : "InterestRate_IRSwap_FixedFloat"
+              }
+            },
+            "calculated" : true
+          } ],
+          "economicTerms" : {
+            "payout" : [ {
+              "@type" : "cdm.product.asset.InterestRatePayout",
+              "@key" : "e7637c02",
+              "payerReceiver" : {
+                "payer" : "Party1",
+                "receiver" : "Party2"
+              },
+              "priceQuantity" : {
+                "quantitySchedule" : {
+                  "@ref:scoped" : "quantity-1"
+                }
+              },
+              "rateSpecification" : {
+                "@type" : "cdm.product.asset.FixedRateSpecification",
+                "rateSchedule" : {
+                  "price" : {
+                    "@ref:scoped" : "price-1"
+                  }
+                }
+              },
+              "dayCountFraction" : {
+                "@data" : "30/360"
+              },
+              "calculationPeriodDates" : {
+                "@key:external" : "CalcPeriodDates0",
+                "effectiveDate" : {
+                  "adjustableDate" : {
+                    "unadjustedDate" : "2018-04-03",
+                    "dateAdjustments" : {
+                      "businessDayConvention" : "NONE"
+                    }
+                  }
+                },
+                "terminationDate" : {
+                  "adjustableDate" : {
+                    "unadjustedDate" : "2026-08-30",
+                    "dateAdjustments" : {
+                      "businessDayConvention" : "MODFOLLOWING"
+                    }
+                  }
+                },
+                "calculationPeriodDatesAdjustments" : {
+                  "businessDayConvention" : "MODFOLLOWING",
+                  "businessCenters" : {
+                    "businessCentersReference" : {
+                      "@ref:external" : "accrualBusinessCenters0"
+                    }
+                  }
+                },
+                "calculationPeriodFrequency" : {
+                  "periodMultiplier" : 1,
+                  "period" : "Y",
+                  "rollConvention" : "30"
+                }
+              },
+              "paymentDates" : {
+                "paymentFrequency" : {
+                  "periodMultiplier" : 1,
+                  "period" : "Y"
+                },
+                "payRelativeTo" : "CalculationPeriodEndDate",
+                "paymentDatesAdjustments" : {
+                  "businessDayConvention" : "MODFOLLOWING"
+                }
+              }
+            }, {
+              "@type" : "cdm.product.asset.InterestRatePayout",
+              "@key" : "d8ea9d1f",
+              "payerReceiver" : {
+                "payer" : "Party2",
+                "receiver" : "Party1"
+              },
+              "priceQuantity" : {
+                "quantitySchedule" : {
+                  "@ref:scoped" : "quantity-2"
+                }
+              },
+              "rateSpecification" : {
+                "@type" : "cdm.product.asset.FloatingRateSpecification",
+                "rateOption" : {
+                  "@ref:scoped" : "InterestRateIndex-1"
+                }
+              },
+              "dayCountFraction" : {
+                "@data" : "ACT/360"
+              },
+              "calculationPeriodDates" : {
+                "@key:external" : "CalcPeriodDates1",
+                "effectiveDate" : {
+                  "adjustableDate" : {
+                    "unadjustedDate" : "2018-04-03",
+                    "dateAdjustments" : {
+                      "businessDayConvention" : "NONE"
+                    }
+                  }
+                },
+                "terminationDate" : {
+                  "adjustableDate" : {
+                    "unadjustedDate" : "2026-08-30",
+                    "dateAdjustments" : {
+                      "businessDayConvention" : "MODFOLLOWING"
+                    }
+                  }
+                },
+                "calculationPeriodDatesAdjustments" : {
+                  "businessDayConvention" : "MODFOLLOWING",
+                  "businessCenters" : {
+                    "businessCentersReference" : {
+                      "@ref:external" : "accrualBusinessCenters1"
+                    }
+                  }
+                },
+                "calculationPeriodFrequency" : {
+                  "periodMultiplier" : 6,
+                  "period" : "M",
+                  "rollConvention" : "30"
+                }
+              },
+              "paymentDates" : {
+                "paymentFrequency" : {
+                  "periodMultiplier" : 6,
+                  "period" : "M"
+                },
+                "payRelativeTo" : "CalculationPeriodEndDate",
+                "paymentDatesAdjustments" : {
+                  "businessDayConvention" : "MODFOLLOWING"
+                }
+              },
+              "resetDates" : {
+                "@key:external" : "resetDates0",
+                "calculationPeriodDatesReference" : {
+                  "@ref:external" : "CalcPeriodDates1"
+                },
+                "resetRelativeTo" : "CalculationPeriodStartDate",
+                "fixingDates" : {
+                  "periodMultiplier" : -2,
+                  "period" : "D",
+                  "dayType" : "Business",
+                  "businessDayConvention" : "NONE",
+                  "dateRelativeTo" : {
+                    "@ref" : "b93c80ca",
+                    "@ref:external" : "resetDates0"
+                  }
+                },
+                "resetFrequency" : {
+                  "periodMultiplier" : 6,
+                  "period" : "M"
+                },
+                "resetDatesAdjustments" : {
+                  "businessDayConvention" : "MODFOLLOWING",
+                  "businessCenters" : {
+                    "businessCentersReference" : {
+                      "@ref:external" : "paymentBusinessCenters1"
+                    }
+                  }
+                }
+              }
+            } ],
+            "nonStandardisedTerms" : false
+          }
+        },
+        "tradeLot" : [ {
+          "priceQuantity" : [ {
+            "@key" : "99647601",
+            "price" : [ {
+              "@key:scoped" : "price-1",
+              "value" : 0.05,
+              "unit" : {
+                "currency" : {
+                  "@data" : "EUR"
+                }
+              },
+              "perUnitOf" : {
+                "currency" : {
+                  "@data" : "EUR"
+                }
+              },
+              "priceType" : "InterestRate"
+            } ],
+            "quantity" : {
+              "@key:scoped" : "quantity-1",
+              "value" : 10000,
+              "unit" : {
+                "currency" : {
+                  "@data" : "EUR"
+                }
+              }
+            }
+          }, {
+            "@key" : "9e80e65f",
+            "quantity" : {
+              "@key:scoped" : "quantity-2",
+              "value" : 10000,
+              "unit" : {
+                "currency" : {
+                  "@data" : "EUR"
+                }
+              }
+            },
+            "observable" : {
+              "@key:scoped" : "observable-1",
+              "@data" : {
+                "@type" : "cdm.observable.asset.InterestRateIndex",
+                "@key:scoped" : "InterestRateIndex-1",
+                "@data" : {
+                  "@type" : "cdm.observable.asset.FloatingRateIndex",
+                  "identifier" : [ {
+                    "identifier" : {
+                      "@data" : "EUR-EURIBOR-Telerate"
+                    },
+                    "identifierType" : "Other"
+                  } ],
+                  "assetType" : "Other",
+                  "assetClass" : "InterestRate",
+                  "floatingRateIndex" : {
+                    "@data" : "EUR-EURIBOR-Telerate"
+                  },
+                  "indexTenor" : {
+                    "periodMultiplier" : 6,
+                    "period" : "M"
+                  }
+                }
+              }
+            }
+          } ]
+        } ],
+        "counterparty" : [ {
+          "role" : "Party1",
+          "partyReference" : {
+            "@ref" : "4f018eab",
+            "@ref:external" : "party1"
+          }
+        }, {
+          "role" : "Party2",
+          "partyReference" : {
+            "@ref" : "be64334",
+            "@ref:external" : "party2"
+          }
+        } ],
+        "tradeIdentifier" : [ {
+          "@key" : "e5010f07",
+          "issuer" : {
+            "@scheme" : "http://www.fpml.org/coding-scheme/external/cftc/issuer-identifier",
+            "@data" : "LEI1RPT0001"
+          },
+          "assignedIdentifier" : [ {
+            "identifier" : {
+              "@scheme" : "http://www.fpml.org/coding-scheme/external/unique-transaction-identifier",
+              "@data" : "LEI1RPT001PREAA"
+            }
+          } ],
+          "identifierType" : "UniqueTransactionIdentifier"
+        } ],
+        "tradeDate" : {
+          "@key" : "3f1101",
+          "@data" : "2018-04-01"
+        },
+        "party" : [ {
+          "@key" : "4f018eab",
+          "@key:external" : "party1",
+          "partyId" : [ {
+            "@key" : "d491d93a",
+            "identifier" : {
+              "@scheme" : "http://www.fpml.org/coding-scheme/external/iso17442",
+              "@data" : "LEI1RPT0001"
+            },
+            "identifierType" : "LEI"
+          } ],
+          "name" : {
+            "@data" : "Bank X"
+          },
+          "businessUnit" : [ {
+            "@key" : "5c10b72e",
+            "@key:external" : "desk1",
+            "name" : "NY Swaps Desk"
+          } ],
+          "person" : [ {
+            "@key" : "baeb8c0d",
+            "@key:external" : "trader",
+            "personId" : [ {
+              "@key" : "baeb8c0d",
+              "identifier" : {
+                "@data" : "jjones"
+              }
+            } ]
+          } ],
+          "personRole" : [ {
+            "personReference" : {
+              "@ref" : "baeb8c0d",
+              "@ref:external" : "trader"
+            },
+            "role" : [ {
+              "@data" : "Trader"
+            } ]
+          } ]
+        }, {
+          "@key" : "be64334",
+          "@key:external" : "party2",
+          "partyId" : [ {
+            "@key" : "b0475f",
+            "identifier" : {
+              "@scheme" : "http://www.fpml.org/coding-scheme/external/iso17442",
+              "@data" : "LEI2CP0002"
+            },
+            "identifierType" : "LEI"
+          } ],
+          "name" : {
+            "@data" : "Bank Y"
+          }
+        }, {
+          "@key" : "cce42f3b",
+          "@key:external" : "broker1",
+          "partyId" : [ {
+            "@key" : "e9c05cf5",
+            "identifier" : {
+              "@scheme" : "http://www.fpml.org/coding-scheme/external/iso17442",
+              "@data" : "549300OL8KL0WCQ34V31"
+            },
+            "identifierType" : "LEI"
+          } ],
+          "name" : {
+            "@data" : "Up&Atem"
+          }
+        } ],
+        "partyRole" : [ {
+          "partyReference" : {
+            "@ref" : "cce42f3b",
+            "@ref:external" : "broker1"
+          },
+          "role" : "ArrangingBroker",
+          "ownershipPartyReference" : {
+            "@ref" : "4f018eab",
+            "@ref:external" : "party1"
+          }
+        } ]
+      }
+    }
+  } ],
+  "intent" : "Allocation",
+  "eventDate" : "2018-04-01",
+  "effectiveDate" : null
+}

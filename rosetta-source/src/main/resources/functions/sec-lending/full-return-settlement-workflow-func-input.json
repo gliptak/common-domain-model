@@ -1,0 +1,455 @@
+{
+  "tradeState" : {
+    "@key" : "5e0401a2",
+    "trade" : {
+      "@key" : "9cbdbe7e",
+      "product" : {
+        "@key" : "a78afbdc",
+        "taxonomy" : [ {
+          "source" : "ISDA",
+          "value" : {
+            "name" : {
+              "@data" : "SecurityLending"
+            }
+          },
+          "calculated" : true
+        } ],
+        "economicTerms" : {
+          "effectiveDate" : {
+            "@key" : "e742daa5",
+            "adjustableDate" : {
+              "@key" : "e742daa5",
+              "unadjustedDate" : "2020-09-22",
+              "dateAdjustments" : {
+                "@key" : "fa42f5cf",
+                "businessDayConvention" : "MODFOLLOWING"
+              }
+            }
+          },
+          "terminationDate" : {
+            "@key" : "e743cae5",
+            "adjustableDate" : {
+              "@key" : "e743cae5",
+              "unadjustedDate" : "2020-10-22",
+              "dateAdjustments" : {
+                "@key" : "fa42f5cf",
+                "businessDayConvention" : "MODFOLLOWING"
+              }
+            }
+          },
+          "payout" : [ {
+            "@type" : "cdm.product.template.AssetPayout",
+            "@key" : "b78e4420",
+            "payerReceiver" : {
+              "payer" : "Party1",
+              "receiver" : "Party2"
+            },
+            "priceQuantity" : {
+              "quantitySchedule" : {
+                "@ref:scoped" : "quantity-1"
+              }
+            },
+            "assetLeg" : [ {
+              "settlementDate" : {
+                "adjustableDate" : {
+                  "dateAdjustments" : {
+                    "businessDayConvention" : "NONE"
+                  },
+                  "adjustedDate" : {
+                    "@data" : "2020-09-22"
+                  }
+                }
+              },
+              "deliveryMethod" : "DeliveryVersusPayment"
+            }, {
+              "settlementDate" : {
+                "adjustableDate" : {
+                  "dateAdjustments" : {
+                    "businessDayConvention" : "NONE"
+                  },
+                  "adjustedDate" : {
+                    "@data" : "2020-10-22"
+                  }
+                }
+              },
+              "deliveryMethod" : "DeliveryVersusPayment"
+            } ],
+            "underlier" : {
+              "@type" : "cdm.base.staticdata.asset.common.Security",
+              "identifier" : [ {
+                "identifier" : {
+                  "@data" : "ST001"
+                },
+                "identifierType" : "SEDOL"
+              } ],
+              "securityType" : "Equity"
+            },
+            "minimumFee" : {
+              "value" : 0,
+              "unit" : {
+                "currency" : {
+                  "@data" : "USD"
+                }
+              }
+            },
+            "dividendTerms" : {
+              "manufacturedIncomeRequirement" : {
+                "totalRatio" : 1
+              }
+            }
+          } ],
+          "collateral" : {
+            "@key" : "448281ff",
+            "collateralPortfolio" : [ {
+              "@key" : "82e324cc",
+              "collateralPosition" : [ {
+                "product" : {
+                  "@type" : "cdm.product.template.TransferableProduct",
+                  "asset" : {
+                    "@type" : "cdm.base.staticdata.asset.common.Cash",
+                    "identifier" : [ {
+                      "identifier" : {
+                        "@data" : "USD"
+                      },
+                      "identifierType" : "CurrencyCode"
+                    } ]
+                  },
+                  "economicTerms" : {
+                    "effectiveDate" : {
+                      "adjustableDate" : {
+                        "unadjustedDate" : "2020-09-22",
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "MODFOLLOWING"
+                        }
+                      }
+                    },
+                    "terminationDate" : {
+                      "adjustableDate" : {
+                        "unadjustedDate" : "2020-10-22",
+                        "dateAdjustments" : {
+                          "businessDayConvention" : "MODFOLLOWING"
+                        }
+                      }
+                    },
+                    "payout" : [ {
+                      "@type" : "cdm.product.asset.InterestRatePayout",
+                      "payerReceiver" : {
+                        "payer" : "Party2",
+                        "receiver" : "Party1"
+                      },
+                      "priceQuantity" : {
+                        "quantitySchedule" : {
+                          "@ref:scoped" : "quantity-2"
+                        }
+                      },
+                      "rateSpecification" : {
+                        "@type" : "cdm.product.asset.FixedRateSpecification",
+                        "rateSchedule" : {
+                          "price" : {
+                            "@ref:scoped" : "price-2"
+                          }
+                        }
+                      },
+                      "dayCountFraction" : {
+                        "@data" : "ACT/360"
+                      },
+                      "calculationPeriodDates" : {
+                        "effectiveDate" : {
+                          "adjustableDate" : {
+                            "@key:external" : "Effective_Date",
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "MODFOLLOWING"
+                            },
+                            "adjustedDate" : {
+                              "@data" : "2020-09-22"
+                            }
+                          }
+                        },
+                        "terminationDate" : {
+                          "adjustableDate" : {
+                            "@key:external" : "Termination_Date",
+                            "dateAdjustments" : {
+                              "businessDayConvention" : "MODFOLLOWING"
+                            },
+                            "adjustedDate" : {
+                              "@data" : "2020-10-22"
+                            }
+                          }
+                        },
+                        "calculationPeriodFrequency" : {
+                          "periodMultiplier" : 1,
+                          "period" : "T",
+                          "rollConvention" : "NONE"
+                        }
+                      },
+                      "paymentDates" : {
+                        "paymentFrequency" : {
+                          "periodMultiplier" : 1,
+                          "period" : "T"
+                        },
+                        "paymentDatesAdjustments" : {
+                          "businessDayConvention" : "MODFOLLOWING",
+                          "businessCenters" : {
+                            "businessCenter" : [ {
+                              "@data" : "EUTA"
+                            } ]
+                          }
+                        }
+                      }
+                    } ]
+                  }
+                }
+              } ]
+            } ],
+            "collateralProvisions" : {
+              "collateralType" : "Cash",
+              "eligibleCollateral" : [ {
+                "treatment" : {
+                  "valuationTreatment" : {
+                    "marginPercentage" : 0.02
+                  }
+                }
+              } ]
+            }
+          }
+        }
+      },
+      "tradeLot" : [ {
+        "priceQuantity" : [ {
+          "@key" : "a1221f6f",
+          "price" : [ {
+            "@key:scoped" : "price-1",
+            "value" : 25,
+            "unit" : {
+              "currency" : {
+                "@data" : "USD"
+              }
+            },
+            "perUnitOf" : {
+              "financialUnit" : "Share"
+            },
+            "priceType" : "AssetPrice"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-1",
+            "value" : 200000,
+            "unit" : {
+              "financialUnit" : "Share"
+            }
+          },
+          "observable" : {
+            "@key:scoped" : "observable-1",
+            "@data" : {
+              "@type" : "cdm.base.staticdata.asset.common.Security",
+              "identifier" : [ {
+                "identifier" : {
+                  "@data" : "ST001"
+                },
+                "identifierType" : "SEDOL"
+              } ],
+              "securityType" : "Equity"
+            }
+          }
+        }, {
+          "@key" : "e41b7a85",
+          "price" : [ {
+            "@key:scoped" : "price-2",
+            "value" : 0.01,
+            "unit" : {
+              "currency" : {
+                "@data" : "USD"
+              }
+            },
+            "perUnitOf" : {
+              "currency" : {
+                "@data" : "USD"
+              }
+            },
+            "priceType" : "InterestRate"
+          } ],
+          "quantity" : {
+            "@key:scoped" : "quantity-2",
+            "value" : 5000000,
+            "unit" : {
+              "currency" : {
+                "@data" : "USD"
+              }
+            }
+          }
+        } ]
+      } ],
+      "counterparty" : [ {
+        "role" : "Party1",
+        "partyReference" : {
+          "@ref" : "61517d75",
+          "@ref:external" : "Lender0",
+          "@key" : "61517d75",
+          "@key:external" : "Lender0",
+          "partyId" : [ {
+            "@key" : "87c4d1c6",
+            "identifier" : {
+              "@data" : "FM1LEI11111111111111"
+            }
+          } ],
+          "name" : {
+            "@data" : "StandardFund1"
+          }
+        }
+      }, {
+        "role" : "Party2",
+        "partyReference" : {
+          "@ref" : "7c311b30",
+          "@ref:external" : "Borrower",
+          "@key" : "7c311b30",
+          "@key:external" : "Borrower",
+          "partyId" : [ {
+            "@key" : "12818f8c",
+            "identifier" : {
+              "@data" : "CP001LEI111111111111"
+            }
+          } ],
+          "name" : {
+            "@data" : "CP001"
+          }
+        }
+      } ],
+      "tradeIdentifier" : [ {
+        "@key" : "569d85e5",
+        "issuer" : {
+          "@data" : "KTKL"
+        },
+        "assignedIdentifier" : [ {
+          "identifier" : {
+            "@data" : "0266001"
+          }
+        } ]
+      } ],
+      "tradeDate" : {
+        "@key" : "3f2255",
+        "@data" : "2020-09-21"
+      },
+      "party" : [ {
+        "@key" : "61517d75",
+        "@key:external" : "Lender0",
+        "partyId" : [ {
+          "@key" : "87c4d1c6",
+          "identifier" : {
+            "@data" : "FM1LEI11111111111111"
+          }
+        } ],
+        "name" : {
+          "@data" : "StandardFund1"
+        }
+      }, {
+        "@key" : "84088af0",
+        "@key:external" : "AgentLender",
+        "partyId" : [ {
+          "@key" : "60098fe6",
+          "identifier" : {
+            "@data" : "KTKLLEILLLLLLLLLLLLL"
+          }
+        } ],
+        "name" : {
+          "@data" : "KTKL"
+        }
+      }, {
+        "@key" : "7c311b30",
+        "@key:external" : "Borrower",
+        "partyId" : [ {
+          "@key" : "12818f8c",
+          "identifier" : {
+            "@data" : "CP001LEI111111111111"
+          }
+        } ],
+        "name" : {
+          "@data" : "CP001"
+        }
+      } ]
+    },
+    "state" : {
+      "positionState" : "Executed"
+    },
+    "transferHistory" : [ {
+      "@key" : "a8161f28",
+      "transfer" : {
+        "@type" : "cdm.event.common.ScheduledTransfer",
+        "quantity" : {
+          "value" : 100000.00,
+          "unit" : {
+            "currency" : {
+              "@data" : "USD"
+            }
+          }
+        },
+        "settlementDate" : {
+          "adjustedDate" : {
+            "@data" : "2020-09-22"
+          }
+        },
+        "payerReceiver" : {
+          "payerPartyReference" : {
+            "@ref:external" : "Borrower"
+          },
+          "receiverPartyReference" : {
+            "@ref:external" : "Lender0"
+          }
+        },
+        "payoutReference" : {
+          "@ref" : "b78e4420"
+        }
+      }
+    }, {
+      "@key" : "16381d6d",
+      "transfer" : {
+        "@type" : "cdm.event.common.ScheduledTransfer",
+        "quantity" : {
+          "value" : 200000,
+          "unit" : {
+            "financialUnit" : "Share"
+          }
+        },
+        "asset" : {
+          "@type" : "cdm.base.staticdata.asset.common.Security",
+          "identifier" : [ {
+            "identifier" : {
+              "@data" : "ST001"
+            },
+            "identifierType" : "SEDOL"
+          } ]
+        },
+        "settlementDate" : {
+          "adjustedDate" : {
+            "@data" : "2020-09-22"
+          }
+        },
+        "payerReceiver" : {
+          "payerPartyReference" : {
+            "@ref:external" : "Lender0"
+          },
+          "receiverPartyReference" : {
+            "@ref:external" : "Borrower"
+          }
+        },
+        "payoutReference" : {
+          "@ref" : "b78e4420"
+        }
+      }
+    } ]
+  },
+  "returnInstruction" : {
+    "quantity" : [ {
+      "value" : 200000,
+      "unit" : {
+        "financialUnit" : "Share"
+      }
+    }, {
+      "value" : 5000000,
+      "unit" : {
+        "currency" : {
+          "@data" : "USD"
+        }
+      }
+    } ]
+  },
+  "returnDate" : "2020-10-21"
+}

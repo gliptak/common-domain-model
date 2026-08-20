@@ -92,11 +92,13 @@ func ResolveEquityInitialPrice: <"To be replaced by full resolve price function 
                     unit: item -> unit,
                     perUnitOf: item -> perUnitOf,
                     priceType: item -> priceType,
+                    priceSubType: item -> priceSubType,
                     priceExpression: item -> priceExpression,
                     composite: item -> composite,
                     arithmeticOperator: item -> arithmeticOperator,
-                    cashPrice: item -> cashPrice,
-                    datedValue: empty
+                    premiumType: item -> premiumType,
+                    datedValue: empty,
+                    ...
                 }
             then only-element
 
@@ -117,5 +119,5 @@ func ExtractFixedLeg: <"Extract interest rate payout containing fix rate specifi
 
     set fixedRatePayout:
         interestRatePayouts
-            filter rateSpecification -> FixedRateSpecification exists
+            filter rateSpecification as FixedRateSpecification exists
             then only-element
